@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: "sudokud",
+    description: `chetoui's hamza personal website`,
+    author: `@okuninoshi`,
+    keywords: 'chetoui hamza',
   },
   plugins: [
     "gatsby-plugin-styled-components",
