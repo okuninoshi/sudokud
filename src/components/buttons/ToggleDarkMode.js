@@ -5,7 +5,6 @@ import styled from "styled-components"
 import NintendoSwitchButton from './ToggleDarkModeSvg'
 
 const Classes = styled.div`
-
 .switch {
     width: 35px;
     height: 35px;

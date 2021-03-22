@@ -1,37 +1,59 @@
 import React from 'react';
 import { motion } from 'framer-motion'
+import styled from 'styled-components'
 import Layout from '../components/Layout';
+import Form from '../components/Form'
 
-const ContactPage = () => {
+
+
+
+const Section = styled(motion.section)`
+ height: 100vh;
+ padding:5vh 5vw;
+`
+const ContactPage = ({ transitionStatus, entry, exit }) => {
   return (
     <Layout>
-      <motion.div 
-      initial={{
-        opacity: 0,
-        y: 300
-      }}
-       animate={{
-         opacity: 1,
-         y: 0,
-       }}
-       exit={{
-        opacity: 0,
-        y: 300,
-      }}
-      key="contact">
-        <div className="contact">
-          <div className="title">
-            <h1>Contact</h1>
-            <hr />
+      <Section 
+        initial={entry.state}
+        animate={
+          transitionStatus === "exiting"
+          ? { x: 2000 }
+          : { x: 0 }
+        }
+        transition={
+          transitionStatus === "exiting"
+          ? {duration: exit.length}
+          : {duration: 0.5}
+        }>
+        <div>
+          <div>
+              <h1> Get in touch </h1>
           </div>
-          <div className="content">
-            <p>Donec nec ultricies tellus. Aenean sit amet aliquet orci. Ut a nisl velit. Nunc id elit ac purus hendrerit facilisis. Mauris vel facilisis turpis. Sed sapien arcu, congue quis efficitur commodo, accumsan vitae ligula. Vivamus lobortis vel dui at mattis. Duis tincidunt lacinia metus, nec dictum.</p>
-            <p>Praesent diam neque, varius a bibendum sit amet, fermentum et libero. Ut quis rutrum est, at cursus justo. In metus diam, luctus non felis a, congue ultricies risus. Aliquam erat volutpat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla vitae euismod justo, at malesuada turpis. Suspendisse sagittis eleifend nibh quis accumsan. Etiam non ante varius, porta enim sit amet.</p>
-          </div>       
-        </div>
-      </motion.div>
+          <div>
+              <p>
+                  Got a burning question regarding <em>JAMStack</em>,
+                  Need a new <em>Website</em>, or just anything in general.
+                  I am happy to talk.
+              </p>
+              <p>
+                  Just send me a message using the form below or you can send me a DM on
+                  <a className="mx-2" href="https://twitter.com/okuninoshi">Twitter.</a>
+              </p>
+          </div>
+          <div id="main-form">
+              <Form />
+          </div>
+          </div>
+      </Section>
     </Layout>
   )
 };
 
 export default ContactPage;
+
+
+
+
+
+
