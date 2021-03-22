@@ -4,6 +4,7 @@ module.exports = {
     description: `chetoui's hamza personal website`,
     author: `@okuninoshi`,
     keywords: 'chetoui hamza',
+    siteUrl: 'https://sudokud.gatsbyjs.io'
   },
   plugins: [
     "gatsby-plugin-styled-components",
