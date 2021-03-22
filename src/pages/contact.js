@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
 import Form from '../components/Form'
+import Container from '../components/Container'
 
 
 
@@ -26,7 +27,7 @@ const ContactPage = ({ transitionStatus, entry, exit }) => {
           ? {duration: exit.length}
           : {duration: 0.5}
         }>
-        <div>
+        <Container>
           <div>
               <h1> Get in touch </h1>
           </div>
@@ -44,7 +45,7 @@ const ContactPage = ({ transitionStatus, entry, exit }) => {
           <div id="main-form">
               <Form />
           </div>
-          </div>
+          </Container>
       </Section>
     </Layout>
   )

@@ -14,6 +14,11 @@ const reducer = (state, action) => {
                 ...state,
                 isOpen: !state.isOpen
             }
+        case "TOGGLE_HOVERED_MODE":
+            return {
+                ...state,
+                isHovered: !state.isHovered
+            }
         default: {
             return state
         }
@@ -23,7 +28,8 @@ const reducer = (state, action) => {
 const useGlobalState = () => {
     const [state, dispatch] = useReducer(reducer, {
         isDark: storage.getItem("isDark") ? JSON.parse(storage.getItem("isDark")) : false,
-        isOpen: false
+        isOpen: false,
+        isHovered: false,
     })
 
     return { state, dispatch }

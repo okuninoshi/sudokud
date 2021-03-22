@@ -9,8 +9,6 @@ export default function ({ children, ...props }) {
     return (
         <TransitionLink {...props}>
             <ButtonWrapper
-                // onMouseEnter={() => (setActive(true))}
-                // onMouseLeave={() => (setActive(false))}
                 onMouseDown={() => (setActive(true))}
                 onMouseUp={() => (setActive(false))}
             >

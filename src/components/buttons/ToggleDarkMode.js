@@ -2,7 +2,7 @@ import React from "react"
 import { useContext } from "react"
 import Context from '../../store/context'
 import styled from "styled-components"
-import NintendoSwitchButton from './ToggleDarkModeSvg'
+import SwitchMode from './SwitchMode'
 
 const Classes = styled.div`
 .switch {
@@ -41,7 +41,8 @@ const ToggleDarkMode = () => {
         role="button"
         data-toggle="tooltip" data-placement="bottom" title={state.isDark ? "Cold mode" : "Warm mode"}
         tabIndex="0">
-          <NintendoSwitchButton isDark={state.isDark}/>
+          {/* <NintendoSwitchButton isDark={state.isDark}/> */}
+          <SwitchMode isDark={state.isDark}/>
         </div>
     </Classes>
   )

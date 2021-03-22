@@ -6,8 +6,8 @@ import Context from '../../store/context'
 
 
 const FCSButton = styled(motion.button)`
-width:144px;
-height:59px;
+width:96px;
+height:64px;
 padding:0;
 margin:0;
 position:relative;

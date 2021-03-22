@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     background:${props => (props.isDark ? props.theme.dark.background : props.theme.light.background)};
     box-sizing: border-box;
     overflow-x:hidden;
+    cursor: none;
   }
   h1, h3, h5{
     font-family: 'knuckle down';

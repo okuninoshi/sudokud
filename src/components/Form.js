@@ -5,7 +5,6 @@ import styled from 'styled-components'
 // import useSound from 'use-sound'
 import FancadeButton from './buttons/FancadeStyleButton'
 
-
 const Faurme = styled.form`
 `
 const FaurmeGroup = styled.div`
@@ -62,7 +61,7 @@ const Form = () => {
                 />
             </FaurmeGroup>
             <FaurmeGroup>
-                <FancadeButton type="submit" text="Send Message" />
+                <FancadeButton type="submit" text="Send" />
             </FaurmeGroup>
         </Faurme>
     )

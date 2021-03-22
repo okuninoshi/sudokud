@@ -3,10 +3,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 // import { TransitionState } from 'gatsby-plugin-transition-link'
 import Layout from '../components/Layout';
-
-
-
-
+import Container from '../components/Container'
 
 const Section = styled(motion.section)`
  height: 100vh;
@@ -15,7 +12,7 @@ const Section = styled(motion.section)`
  align-items: center;
  justify-content:center;
 `
-const AboutPage = ({ transitionStatus, entry, exit }) => {
+const WorkPage = ({ transitionStatus, entry, exit }) => {
   return (
     <Layout>
       <Section 
@@ -30,17 +27,15 @@ const AboutPage = ({ transitionStatus, entry, exit }) => {
         ? {duration: exit.length}
         : {duration: 0.5}
       }>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
-        <h1>About</h1>
+        <Container>
+            <h1>
+              — selected work.
+            </h1>
+            <h5>hello hello hello</h5>
+        </Container>
       </Section>
     </Layout>
   )
 };
 
-export default AboutPage;
+export default WorkPage;

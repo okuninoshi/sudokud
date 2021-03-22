@@ -10,14 +10,14 @@ import { TransitionState } from 'gatsby-plugin-transition-link'
 
 
 const Nav = styled.nav`
-position: fixed;
-bottom: 8vh;
+position: absolute;
+bottom: 2vh;
 width: 100%;
 margin: auto;
 padding: 0 10vw;
-background: inherit;
 display: flex;
-align-items: center;
+z-index: 10;
+align-items: flex-end;
 justify-content: center;
 `
 
@@ -29,8 +29,8 @@ const NavBar = () => {
           return(
           <Nav>
             <NavButtonLeft
-              id="about"
-              to="/about"
+              id="work"
+              to="/work"
               exit={{ 
                 length: 0.5,
                 state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
@@ -40,7 +40,7 @@ const NavBar = () => {
                 state: { x: -window.innerWidth }
               }}
               >
-              About
+              Work
             </NavButtonLeft>
             <NavButtonCenter
               id="home"
