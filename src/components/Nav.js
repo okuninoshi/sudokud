@@ -23,57 +23,62 @@ justify-content: center;
 
 const NavBar = () => {
   return (
-    <TransitionState>
+    <React.Fragment>
       {
-        ({exit}) => { 
-          return(
-          <Nav>
-            <NavButtonLeft
-              id="work"
-              to="/work"
-              exit={{ 
-                length: 0.5,
-                state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
-              }}
-              entry={{ 
-                delay: 0.5,
-                state: { x: -window.innerWidth }
-              }}
-              >
-              Work
-            </NavButtonLeft>
-            <NavButtonCenter
-              id="home"
-              to="/"
-              entry={{ 
-                delay: 0.5,
-                state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
-              }}
-              exit={{ 
-                length: 0.5,
-                state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
-              }}
-              >
-              Home
-            </NavButtonCenter>
-            <NavButtonRight
-              to="/contact"
-              id="contact"
-              exit={{ 
-                length: 0.5,
-                state: { x: -window.innerWidth, opacity: 0, fromContact: true, fromAbout: false }
-              }}
-              entry={{ 
-                delay: 0.5,
-                state: { x: window.innerWidth, }
-              }}
-              >
-                Contact
-            </NavButtonRight>
-          </Nav>
-      )}
-    }
-    </TransitionState>
+        typeof window !== `undefined` &&
+      (<TransitionState>
+        {
+          ({exit}) => { 
+            return(
+            <Nav>
+              <NavButtonLeft
+                id="work"
+                to="/work"
+                exit={{ 
+                  length: 0.5,
+                  state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
+                }}
+                entry={{ 
+                  delay: 0.5,
+                  state: { x: -window.innerWidth }
+                }}
+                >
+                Work
+              </NavButtonLeft>
+              <NavButtonCenter
+                id="home"
+                to="/"
+                entry={{ 
+                  delay: 0.5,
+                  state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
+                }}
+                exit={{ 
+                  length: 0.5,
+                  state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
+                }}
+                >
+                Home
+              </NavButtonCenter>
+              <NavButtonRight
+                to="/contact"
+                id="contact"
+                exit={{ 
+                  length: 0.5,
+                  state: { x: -window.innerWidth, opacity: 0, fromContact: true, fromAbout: false }
+                }}
+                entry={{ 
+                  delay: 0.5,
+                  state: { x: window.innerWidth, }
+                }}
+                >
+                  Contact
+              </NavButtonRight>
+            </Nav>
+        )}
+      }
+      </TransitionState>)
+      }
+    </React.Fragment>
   )
 };
 

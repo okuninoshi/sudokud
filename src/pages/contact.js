@@ -15,38 +15,40 @@ const Section = styled(motion.section)`
 const ContactPage = ({ transitionStatus, entry, exit }) => {
   return (
     <Layout>
-      <Section 
-        initial={entry.state}
-        animate={
-          transitionStatus === "exiting"
-          ? { x: 2000 }
-          : { x: 0 }
-        }
-        transition={
-          transitionStatus === "exiting"
-          ? {duration: exit.length}
-          : {duration: 0.5}
-        }>
-        <Container>
-          <div>
-              <h1> Get in touch </h1>
-          </div>
-          <div>
-              <p>
-                  Got a burning question regarding <em>JAMStack</em>,
-                  Need a new <em>Website</em>, or just anything in general.
-                  I am happy to talk.
-              </p>
-              <p>
-                  Just send me a message using the form below or you can send me a DM on
-                  <a className="mx-2" href="https://twitter.com/okuninoshi">Twitter.</a>
-              </p>
-          </div>
-          <div id="main-form">
-              <Form />
-          </div>
-          </Container>
-      </Section>
+      { typeof window !== `undefined` && (
+        <Section 
+          initial={entry.state}
+          animate={
+            transitionStatus === "exiting"
+            ? { x: 2000 }
+            : { x: 0 }
+          }
+          transition={
+            transitionStatus === "exiting"
+            ? {duration: exit.length}
+            : {duration: 0.5}
+          }>
+          <Container>
+            <div>
+                <h1> Get in touch </h1>
+            </div>
+            <div>
+                <p>
+                    Got a burning question regarding <em>JAMStack</em>,
+                    Need a new <em>Website</em>, or just anything in general.
+                    I am happy to talk.
+                </p>
+                <p>
+                    Just send me a message using the form below or you can send me a DM on
+                    <a className="mx-2" href="https://twitter.com/okuninoshi">Twitter.</a>
+                </p>
+            </div>
+            <div id="main-form">
+                <Form />
+            </div>
+            </Container>
+        </Section>)
+      }
     </Layout>
   )
 };

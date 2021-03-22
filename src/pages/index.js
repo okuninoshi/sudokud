@@ -24,25 +24,28 @@ const Section = styled(motion.section)`
 const HomePage = ({ transitionStatus, exit, entry }) => {
   return (
     <Layout>
-      <Section 
-      initial={entry.state }
-      animate={
-        transitionStatus === "exiting"
-        ? { x: exit.state.x}
-        : { x: 0 }
+      {
+        typeof window !== `undefined` && (
+        <Section 
+        initial={entry.state }
+        animate={
+          transitionStatus === "exiting"
+          ? { x: exit.state.x}
+          : { x: 0 }
+        }
+        transition={
+          transitionStatus === "exiting"
+          ? {duration: exit.length}
+          : {duration: 0.5}
+        }>
+          <Container>
+              <h1>
+                Chetoui Hamza
+              </h1>
+              <h5>web developer, a designer, and a JAMSTACK enthusiast</h5>
+          </Container>
+        </Section>)
       }
-      transition={
-        transitionStatus === "exiting"
-        ? {duration: exit.length}
-        : {duration: 0.5}
-      }>
-        <Container>
-            <h1>
-              Chetoui Hamza
-            </h1>
-            <h5>web developer, a designer, and a JAMSTACK enthusiast</h5>
-        </Container>
-      </Section>
     </Layout>
   )
 };

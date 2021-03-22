@@ -15,25 +15,30 @@ const Section = styled(motion.section)`
 const WorkPage = ({ transitionStatus, entry, exit }) => {
   return (
     <Layout>
-      <Section 
-      initial={entry.state}
-      animate={
-        transitionStatus === "exiting"
-        ? { x: -window.innerWidth }
-        : { x: 0 }
-      }
-      transition={
-        transitionStatus === "exiting"
-        ? {duration: exit.length}
-        : {duration: 0.5}
-      }>
-        <Container>
-            <h1>
-              — selected work.
-            </h1>
-            <h5>hello hello hello</h5>
-        </Container>
-      </Section>
+      <React.Fragment>
+        {
+          typeof window !== `undefined` && (
+          <Section 
+          initial={entry.state}
+          animate={
+            transitionStatus === "exiting"
+            ? { x: -window.innerWidth }
+            : { x: 0 }
+          }
+          transition={
+            transitionStatus === "exiting"
+            ? {duration: exit.length}
+            : {duration: 0.5}
+          }>
+            <Container>
+                <h1>
+                  — selected work.
+                </h1>
+                <h5>hello hello hello</h5>
+            </Container>
+          </Section>)
+        }
+      </React.Fragment>
     </Layout>
   )
 };
