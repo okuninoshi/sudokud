@@ -7,10 +7,10 @@ const Cursor = styled(motion.div)`
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
-  z-index: 15;
+  z-index: 25;
   transform: translate(-50%, -50%);
   transform-origin: 100% 100%;
-  backdrop-filter: invert(100%);
+  border: 1px solid ${props => props.isDark ? props.theme.dark.text : '#000'};
 `
 
 const VirtualCursor = () => {
@@ -32,10 +32,15 @@ const VirtualCursor = () => {
       }, [posX, posY]);
     return(
         <Cursor
+        isDark={state.isDark}
         isHovered={state.isHovered} 
         style={{
           top: `${posY + "px"}`,
           left: `${posX + "px"}`,
+        }}
+        initial={{
+          width: '0px',
+          height: '0px',
         }}
         animate={{
           width: state.isHovered ? '28px' : '24px',

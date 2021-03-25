@@ -9,8 +9,8 @@ import Container from '../components/Container'
 
 
 const Section = styled(motion.section)`
- height: 100vh;
  padding:5vh 5vw;
+ min-height: 100vh;
 `
 const ContactPage = ({ transitionStatus, entry, exit }) => {
   return (
@@ -30,16 +30,13 @@ const ContactPage = ({ transitionStatus, entry, exit }) => {
           }>
           <Container>
             <div>
-                <h1> Get in touch </h1>
-            </div>
-            <div>
                 <p>
                     Got a burning question regarding <em>JAMStack</em>,
                     Need a new <em>Website</em>, or just anything in general.
                     I am happy to talk.
                 </p>
                 <p>
-                    Just send me a message using the form below or you can send me a DM on
+                    Just send me a message using the form below or you can send me a DM on &nbsp;
                     <a className="mx-2" href="https://twitter.com/okuninoshi">Twitter.</a>
                 </p>
             </div>

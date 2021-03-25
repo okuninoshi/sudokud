@@ -1,5 +1,4 @@
 import React from 'react';
-// import  { useState } from 'react'
 import NavButtonLeft from './buttons/NavButtonLeft'
 import NavButtonCenter from './buttons/NavButtonCenter'
 import NavButtonRight from './buttons/NavButtonRight'
@@ -10,15 +9,24 @@ import { TransitionState } from 'gatsby-plugin-transition-link'
 
 
 const Nav = styled.nav`
-position: absolute;
-bottom: 2vh;
-width: 100%;
+position: fixed;
+top: 90vh;
+right: 0;
 margin: auto;
-padding: 0 10vw;
+padding: 0 5vw;
 display: flex;
-z-index: 10;
-align-items: flex-end;
 justify-content: center;
+align-items: flex-end;
+z-index: 100;
+a{
+  color: ${props => props.theme.palette.chinaPink};
+}
+a:hover{
+  color: ${props => props.theme.light.chinaPink};
+}
+@media (max-width: 600px){
+  top: 90vh;
+}
 `
 
 const NavBar = () => {

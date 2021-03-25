@@ -1,8 +1,9 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import TransitionLink from 'gatsby-plugin-transition-link'
+import Context from '../../store/context'
 
 export const ButtonWrapper = styled(motion.div)`
 width:74px;
@@ -23,24 +24,24 @@ position:relative;
 }
 #btn-body,
 #body-translate{
-    fill:#218cff;
-    fill-opacity:1;
-    stroke-width:0.074332;
-    stroke-linecap:round;
-    paint-order:markers fill stroke;
+    fill:${props => props.isDark ? props.theme.light.background : props.theme.dark.background};
+    fill-opacity: 1;
+    stroke-width: 0;
+    stroke-linecap: round;
+    paint-order: markers fill stroke;
 }
 #btn-borders,
 #border-translate{
-    fill:#001b38;
-    stroke-width:0.0742069;
+    fill:${props => props.isDark ? 'darkgray' : '#636363'};
+    stroke-width:0;
     stroke-linecap:round;
     paint-order:markers fill stroke;
 
 }
 #btn-shadow{
-    fill:#005bbd;
+    fill:${props => props.isDark ? "darkgray" : '#636363'};
     fill-opacity:1;
-    stroke-width:0.0742069;
+    stroke-width:0;
     stroke-linecap:round;
     paint-order:markers fill stroke;
 
@@ -50,11 +51,14 @@ position:relative;
 
 export default function ({ children, ...props }) {
     const [active, setActive] = useState(false);
+    const { state } = useContext(Context);
     return (
         <TransitionLink {...props}>
             <ButtonWrapper
+                isDark={state.isDark}
                 onMouseDown={() => (setActive(true))}
                 onMouseUp={() => (setActive(false))}
+
                 >
                 <svg
                 xmlns="http://www.w3.org/2000/svg"

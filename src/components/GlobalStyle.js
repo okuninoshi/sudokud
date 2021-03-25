@@ -1,6 +1,6 @@
 
 import { createGlobalStyle } from 'styled-components'
-
+import '../css/typo.css'
 const GlobalStyle = createGlobalStyle`
   * > * {
     box-sizing: border-box;
@@ -18,15 +18,24 @@ const GlobalStyle = createGlobalStyle`
     cursor: none;
   }
   h1, h3, h5{
-    font-family: 'knuckle down';
-    letter-spacing: 2px;
+    font-family: 'Doppio';
+    letter-spacing: 1.5px;
     margin: 0;
   }
   h1{
-    font-size: calc(1.4rem + 5vw);
+    font-size: calc(1.4rem + 7vw);
   }
   h5{
     font-size: calc(1rem + 1vw);
+  }
+  p{
+    font-size: calc(0.625rem + 1.2vw);
+    line-height: 1.875rem;
+    margin: 0;
+  }
+  a{
+    color: ${props => props.theme.palette.chinaPink};
+    text-decoration: none;
   }
 `
 export default GlobalStyle

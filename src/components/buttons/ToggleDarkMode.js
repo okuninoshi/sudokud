@@ -8,14 +8,12 @@ const Classes = styled.div`
 .switch {
     width: 35px;
     height: 35px;
+    position:relative;
     display: flex;
-    cursor: pointer;
-    margin: 0 8px;
-    border-radius:5px;
     display:flex;
     align-items:center;
     justify-content:center;
-    position:relative;
+    cursor: pointer;
   }
 
 `
@@ -39,11 +37,10 @@ const ToggleDarkMode = () => {
         className="switch"
         onClick={toggleSwitch}
         role="button"
-        data-toggle="tooltip" data-placement="bottom" title={state.isDark ? "Cold mode" : "Warm mode"}
+        data-toggle="tooltip" data-placement="bottom" title={state.isDark ? "Light mode" : "Dark mode"}
         tabIndex="0">
-          {/* <NintendoSwitchButton isDark={state.isDark}/> */}
           <SwitchMode isDark={state.isDark}/>
-        </div>
+      </div>
     </Classes>
   )
 }

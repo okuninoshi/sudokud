@@ -6,8 +6,32 @@ import styled from 'styled-components'
 import FancadeButton from './buttons/FancadeStyleButton'
 
 const Faurme = styled.form`
+display: flex; 
+align-items: center;
+flex-direction: column;
+padding: 5vh;
+button{
+    align-self:flex-end;
+}
 `
 const FaurmeGroup = styled.div`
+display: flex;
+flex-direction: column;
+padding: 3vh 0;
+input, textarea{
+    width:62vw;
+    height: 8vh;
+    background: ${props => props.theme.dark.background};
+    border-radius: 4px;
+    border: 2px solid ${props => props.theme.palette.purplePlum};
+}
+input:focus{
+    width:62vw;
+    height: 8vh;
+    background: ${props => props.theme.dark.background};
+    border-radius: 4px;
+    border: 2px solid ${props => props.theme.palette.Liberty};
+}
 `
 const Form = () => {
     const { state } = useContext(Context)
@@ -60,9 +84,11 @@ const Form = () => {
                     // onChange={() => (playkeySound())}
                 />
             </FaurmeGroup>
-            <FaurmeGroup>
+            <div style={{
+                width:"62vw",
+            }}>
                 <FancadeButton type="submit" text="Send" />
-            </FaurmeGroup>
+            </div>
         </Faurme>
     )
 }

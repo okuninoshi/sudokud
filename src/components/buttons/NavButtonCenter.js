@@ -1,16 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { motion } from 'framer-motion'
 import { ButtonWrapper } from './NavButtonLeft'
 import TransitionLink from 'gatsby-plugin-transition-link'
-
+import Context from '../../store/context'
 export default function ({ children, ...props }) {
     const [active, setActive] = useState(false);
+    const { state } = useContext(Context);
     return (
         <TransitionLink {...props}>
             <ButtonWrapper
                 onMouseDown={() => (setActive(true))}
                 onMouseUp={() => (setActive(false))}
+                onTap={() => (setActive(true))}
+                isDark={state.isDark}
             >
             <svg
                 width="100%"
@@ -58,7 +61,7 @@ export default function ({ children, ...props }) {
                     transition={{
                         duration: 0.1
                     }}
-                    fillOpacity={0.6}
+                    fillOpacity={0.4}
                     d="M0 .484h.502v13.534H0z"
                 />
                 </g>
@@ -67,10 +70,7 @@ export default function ({ children, ...props }) {
             <motion.span
              className="btn-icon" 
              animate={{ y: active ? "3px" : 0 }} 
-             transition={{
-                duration: 0.1,
-                type:'spring'
-                }}>
+             >
                 {children}
             </motion.span>
             </ButtonWrapper>

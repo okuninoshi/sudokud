@@ -1,15 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { ButtonWrapper } from './NavButtonLeft'
 import { motion } from 'framer-motion'
 import TransitionLink from 'gatsby-plugin-transition-link'
-
+import Context from '../../store/context'
 
 export default function ({ children, ...props }) {
     const [active, setActive] = useState(false);
+    const { state } = useContext(Context);
     return (
         <TransitionLink {...props}>
             <ButtonWrapper
+                isDark={state.isDark}
                 onMouseDown={() => (setActive(true))}
                 onMouseUp={() => (setActive(false))}
                 >
@@ -58,7 +60,7 @@ export default function ({ children, ...props }) {
                         <motion.path
                             id="between-button-shadow"
                             animate={{ y: active ? 1.310 : 0 }}
-                            fillOpacity={0.6}
+                            fillOpacity={0.4}
          
           d="M140.456 92.344h.752v15.804h-.752z" />
                     </g>

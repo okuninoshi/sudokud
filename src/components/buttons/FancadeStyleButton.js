@@ -26,13 +26,13 @@ background:transparent;
     color:${props => props.theme.palette.cultured};
 }
 #btn-body, #body-translate{
-    fill:${props => props.isDark ? "#a18c96" : "#007bff"};
+    fill: #007bff;
 }
 #btn-borders, #border-translate{
-    fill:${props => props.isDark ? "#684656" : "#00356e"};
+    fill: #00356e;
 }
 #btn-shadow{
-    fill:${props => props.isDark ? "#402b35" : "#004c9e"};
+    fill: #004c9e;
 }
 `
 
