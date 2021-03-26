@@ -27,7 +27,7 @@ const VirtualCursor = () => {
           ]
         }
         return () => {
-          document.removeEventListener('mousemove', logKey);
+          window.removeEventListener('mousemove', logKey);
         };
       }, [posX, posY]);
     return(
@@ -46,8 +46,7 @@ const VirtualCursor = () => {
           width: state.isHovered ? '28px' : '24px',
           height: state.isHovered ? '28px' : '24px',
         }}
-         id="virtual-cursor">
-         </Cursor>
+         id="virtual-cursor" />
     )
 }
 export default VirtualCursor

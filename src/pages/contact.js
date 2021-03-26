@@ -10,11 +10,12 @@ import Container from '../components/Container'
 
 const Section = styled(motion.section)`
  padding:5vh 5vw;
- min-height: 100vh;
+ min-height:100vh;
 `
-const ContactPage = ({ transitionStatus, entry, exit }) => {
+const ContactPage = ({location, transitionStatus, entry, exit }) => {
+  const path = location.pathname
   return (
-    <Layout>
+    <Layout pathname={path}>
       { typeof window !== `undefined` && (
         <Section 
           initial={entry.state}
@@ -29,7 +30,10 @@ const ContactPage = ({ transitionStatus, entry, exit }) => {
             : {duration: 0.5}
           }>
           <Container>
-            <div>
+            <div style={{
+              margin: 'auto',
+              maxWidth: '75vw',
+            }}>
                 <p>
                     Got a burning question regarding <em>JAMStack</em>,
                     Need a new <em>Website</em>, or just anything in general.
@@ -44,12 +48,40 @@ const ContactPage = ({ transitionStatus, entry, exit }) => {
                 <Form />
             </div>
             </Container>
+            {/* <Circles /> */}
         </Section>)
       }
     </Layout>
   )
 };
-
+const circles =["circle1", "circle2" , "circle3", "circle4"]
+const Circles = () => {
+  return(
+    <React.Fragment>
+      {circles.map((item, id) => {
+        return(
+          <motion.div
+          key={id}
+          initial={{
+            scale:0,
+            rotate: 45,
+          }}
+          animate={{
+            scale:1,
+          }}
+          transition={{
+            type: "spring",
+            mass:15,
+            damping:70,
+            delay: 0.4 * id,
+          }}
+          className={`circle ${item}`}></motion.div>
+          )
+        })
+      }
+  </React.Fragment>
+  )
+}
 export default ContactPage;
 
 

@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
     font-size: 1rem;
-    color:${props => (props.isDark ? props.theme.dark.text : props.theme.light.text)};
+    color:${props => (props.isDark ? props.theme.dark.text : props.theme.dark.background)};
     margin:0;
     padding:0;
     background:${props => (props.isDark ? props.theme.dark.background : props.theme.light.background)};

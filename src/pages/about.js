@@ -12,9 +12,10 @@ const Section = styled(motion.section)`
  min-height: 100vh;
 
 `
-const WorkPage = ({ transitionStatus, entry, exit }) => {
+const AboutPage = ({location, transitionStatus, entry, exit }) => {
+  const path = location.pathname
   return (
-    <Layout>
+    <Layout pathname={path}>
       <React.Fragment>
         {
           typeof window !== `undefined` && (
@@ -44,18 +45,21 @@ const WorkPage = ({ transitionStatus, entry, exit }) => {
                   slug="/"
                   excerpt="bla bla bla bla"
                   published="mm/dd/yyyy"
+                  thumbnail="../images/portrait.png"
                    />
                    <NesCard
                   title="test"
                   slug="/"
                   excerpt="bla bla bla bla"
                   published="mm/dd/yyyy"
+                  thumbnail="../images/portrait.png"
                    />
                    <NesCard
                   title="test"
                   slug="/"
                   excerpt="bla bla bla bla"
                   published="mm/dd/yyyy"
+                  thumbnail="../images/portrait.png"
                    />
                 </div>
             </Container>
@@ -66,4 +70,4 @@ const WorkPage = ({ transitionStatus, entry, exit }) => {
   )
 };
 
-export default WorkPage;
+export default AboutPage;

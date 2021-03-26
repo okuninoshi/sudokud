@@ -36,8 +36,8 @@ const PageTitle = () => {
       
         <Title variants={container} initial="hidden" animate="show">
             {/* <motion.div className="bar" variants={bar}></motion.div> */}
-            <motion.span className="word" variants={word}>Wo</motion.span>
-            <motion.span className="word" variants={word}>rk</motion.span>
+            <motion.span className="word" variants={word}>Ab</motion.span>
+            <motion.span className="word" variants={word}>out</motion.span>
         </Title>
         
     )

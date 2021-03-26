@@ -4,19 +4,21 @@ import React from "react";
 import styled from "styled-components";
 import { TransitionState } from 'gatsby-plugin-transition-link'
 import TransitionLink from 'gatsby-plugin-transition-link'
+import {motion} from 'framer-motion'
 
-const Nav = styled.nav`
+const Nav = styled(motion.nav)`
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    justify-content: flex-end;
     position:relative;
-    padding-right: 6vw;
+    padding-right: 10vw;
     .link {
         cursor: pointer;
-        padding: 4px 3vw;
+        padding: 4px 2vw;
     }
  `
-export default function Navigation() {
+export default function Navigation({path}) {
+    console.log("navigation : ", path)
     return (
         <React.Fragment>
             {
@@ -26,36 +28,39 @@ export default function Navigation() {
                 ({exit}) => { 
                     return(
                         <Nav>
-                            <TransitionLink
-                                id="about"
-                                className="link"
-                                to="/about"
-                                exit={{ 
-                                    length: 0.5,
-                                    state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
-                                }}
-                                entry={{ 
-                                    delay: 0.5,
-                                    state: { x: -window.innerWidth }
-                                }}
-                                >
-                                About
-                            </TransitionLink>
-                            <TransitionLink
+                            {path !== "/about" &&
+                                <TransitionLink
+                                    id="about"
+                                    className="link"
+                                    to="/about"
+                                    exit={{ 
+                                        length: 0.5,
+                                        state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
+                                    }}
+                                    entry={{ 
+                                        delay: 0.5,
+                                        state: { x: -window.innerWidth }
+                                    }}
+                                    >
+                                    ABOUT
+                                </TransitionLink>}
+                            {path !== "/" &&
+                                <TransitionLink
                                 id="home"
                                 className="link"
                                 to="/"
                                 entry={{ 
-                                delay: 0.5,
-                                state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
+                                    delay: 0.5,
+                                    state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
                                 }}
                                 exit={{ 
-                                length: 0.5,
-                                state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
+                                    length: 0.5,
+                                    state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
                                 }}
                                 >
-                                Home
-                            </TransitionLink>
+                                HOME
+                            </TransitionLink>}
+                            {path !== "/contact" &&
                             <TransitionLink
                                 to="/contact"
                                 id="contact"
@@ -69,8 +74,8 @@ export default function Navigation() {
                                     state: { x: window.innerWidth, }
                                 }}
                                 >
-                                    Contact
-                            </TransitionLink>
+                                CONTACT
+                            </TransitionLink>}
                         </Nav>
                         )
                     }

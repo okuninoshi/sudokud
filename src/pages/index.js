@@ -64,9 +64,10 @@ const item = {
       } 
   }
 }
-const HomePage = ({ transitionStatus, exit, entry }) => {
+const HomePage = ({ location, transitionStatus, exit, entry }) => {
+  const path = location.pathname
   return (
-    <Layout>
+    <Layout pathname={path}>
       {
         typeof window !== `undefined` && (
         <Section 

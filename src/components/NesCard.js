@@ -1,18 +1,16 @@
 import React from 'react'
 import { useContext } from 'react'
 import Context from '../store/context'
-import { Link } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 // import useSound from 'use-sound'
 const Card = styled(motion.div)`
     position:relative;
-    width:300px;
-    height:450px;
-    background:linear-gradient(180deg, #684656, #684656 );
+    width:270px;
+    height:420px;
     padding:16px;
-    box-shadow:-16px 14px 6px 0 ${props => props.isDark ? "#0e0e0e" : "#808080"};
+    box-shadow: -16px 14px 6px 0 ${props => props.isDark ? "#0e0e0e" : "#808080"};
     &:after{
         content:"";
         position:absolute;
@@ -40,9 +38,9 @@ const Card = styled(motion.div)`
     }
 `
 const CardBody = styled.div`
-    width:100%;
     clip-path: polygon(0% 0%, 100% 0, 100% 75%, 0% 99%);
     padding:15px 0 0 0;
+    border: 1px solid deeppink;
 `
 const CardFooter = styled.div`
     width:100%;
@@ -64,13 +62,13 @@ const NesCard = ({ thumbnail, title, slug, excerpt, published }) => {
     //     'audio/hoverIn.wav', { volume: 0.5 }
     // )
     return (
-        <Link to={`${slug}`}>
+        <a href={`${slug}`}>
             <Card isDark={state.isDark}
                 // onHoverEnd={() => (POP())}
             >
                 <time className="published"> {published} </time>
                 <CardBody>
-                <StaticImage src="../images/portrait.png" alt="A hamza" />
+                    <StaticImage src="../images/portrait.png" alt={title} />
                 </CardBody>
                 <CardFooter>
                     <div className="footer-content">
@@ -79,7 +77,7 @@ const NesCard = ({ thumbnail, title, slug, excerpt, published }) => {
                     </div>
                 </CardFooter>
             </Card>
-        </Link>
+        </a>
     )
 }
 export default NesCard

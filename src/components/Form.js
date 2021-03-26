@@ -1,58 +1,91 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Context from '../store/context'
 import styled from 'styled-components'
 // import useSound from 'use-sound'
+import {motion} from 'framer-motion'
 import FancadeButton from './buttons/FancadeStyleButton'
+import { useForm } from 'react-hook-form'
+import  axios from  'axios'
 
 const Faurme = styled.form`
 display: flex; 
-align-items: center;
 flex-direction: column;
-padding: 5vh;
-button{
-    align-self:flex-end;
+padding: 5vh 0;
+margin: auto;
+max-width: calc(200px + 50vw);
+margin-top: 2rem;
+.button-container {
+    margin: auto;
+    margin-top: 16px;
+    width: calc(200px + 25vw);
+    display: flex;
 }
 `
-const FaurmeGroup = styled.div`
+const FaurmeGroup = styled(motion.div)`
+margin: auto;
 display: flex;
 flex-direction: column;
 padding: 3vh 0;
-input, textarea{
-    width:62vw;
-    height: 8vh;
+label {
+    padding: 6px;
+    margin-bottom: -2px;
+    width: fit-content;
+    font-size: 1.2rem;
+}
+input {
+    padding: 6px 8px;
+    border-radius:3px;
+    border: 0.5px solid ${props => props.theme.palette.chinaPink};
+    color: ${props => props.theme.dark.text};
+    width: calc(200px + 25vw);
+    height: 48px;
     background: ${props => props.theme.dark.background};
-    border-radius: 4px;
-    border: 2px solid ${props => props.theme.palette.purplePlum};
 }
 input:focus{
-    width:62vw;
-    height: 8vh;
+outline-style: dashed;
+outline-width: 2px;
+outline-color: ${props => props.theme.palette.purplePlum};
+}
+textarea{
+    padding: 6px 8px;
+    border-radius:3px;
+    border: none;
+    width: calc(200px + 25vw);
+    height: 67px;
+    color: ${props => props.theme.dark.text};
     background: ${props => props.theme.dark.background};
-    border-radius: 4px;
-    border: 2px solid ${props => props.theme.palette.Liberty};
+    border: 0.5px solid ${props => props.theme.palette.chinaPink};
+}
+textarea:focus{
+outline-style: dashed;
+outline-width: 2px;
+outline-color: ${props => props.theme.palette.purplePlum};
 }
 `
 const Form = () => {
     const { state } = useContext(Context)
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === 'false') {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-    };
-    // const [playkeySound] = useSound(
-    //     'audio/key_tap.wav', { volume: 0.25 }
-    // )
+    const [status, setStatus ] = useState(null)
+
+    const {register, handleSubmit, errors, watch, reset} = useForm()
+    const Email = watch('email')
+    const Message = watch('message')
+
+    function onSubmit(data, e) {
+        axios({ url: 'https://formspree.io/f/mwkaewql',
+            method: 'post',
+            headers: {'Accept': 'application/json'},
+            data: data })
+        .then((response) => { setStatus(response.status) })
+        e.preventDefault();
+        e.target.reset();
+        reset({email: "", message: "" });
+    }
     return (
         <Faurme
-            name="contact"
+            name="sudokud"
             method="post"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-            className="p-4 pt-1"
+            onSubmit={handleSubmit(onSubmit)}
             isDark={state.isDark}
         >
             <input type="hidden" name="form-name" value="contact" />
@@ -61,34 +94,61 @@ const Form = () => {
                     don't fill this out: <input name="bot-field" />
                 </label>
             </p>
-            <FaurmeGroup isDark={state.isDark}>
+            <FaurmeGroup 
+                isDark={state.isDark}
+                initial={{opacity: 0, y: 16 }} 
+                animate={{ opacity:1, y: 0 }} 
+                transition={{
+                    duration: 1.6,
+                }}>
                 <label htmlFor="email">Email</label>
                 <input
                     type="email"
                     name="email"
                     id="email"
                     placeholder="Email@sample.xyz"
-                    required
+                    ref={register({required: true})}
                     // onChange={() => (playkeySound())}
 
-                />
+                />      
+                {errors.email && "Email is required"}
             </FaurmeGroup>
-            <FaurmeGroup isDark={state.isDark}>
+            {Email && <FaurmeGroup 
+                isDark={state.isDark}
+                initial={{opacity: 0, y: 48 }} 
+                animate={{ opacity:1, y: 0 }} 
+                transition={{
+                    duration: 1.6,
+                }}
+                >
                 <label htmlFor="message">Message</label>
                 <textarea
                     type="text"
                     name="message"
                     id="message"
                     placeholder="Hello world"
-                    required
+                    ref={register({ required: true, minLength: 5})}
                     // onChange={() => (playkeySound())}
                 />
-            </FaurmeGroup>
-            <div style={{
-                width:"62vw",
-            }}>
-                <FancadeButton type="submit" text="Send" />
+                {errors.message && "message is required"}
+            </FaurmeGroup>}
+            {Email && Message &&
+                <motion.div 
+                    initial={{opacity: 0, y: 48 }} 
+                    animate={{ opacity:1, y: 0 }} 
+                    transition={{
+                        duration: 1.6,
+                    }}
+                    className="button-container">
+                    <FancadeButton type="submit" text="Send" />
+                </motion.div>
+            }
+            {
+            status == 200 &&
+            <div>
+                Thank you !
             </div>
+            }
         </Faurme>
     )
 }
