@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import Context from '../store/context'
 import styled from 'styled-components'
 // import useSound from 'use-sound'
@@ -144,7 +144,7 @@ const Form = () => {
                 </motion.div>
             }
             {
-            status == 200 &&
+            status === 200 &&
             <div>
                 Thank you !
             </div>

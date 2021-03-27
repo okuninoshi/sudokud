@@ -17,13 +17,16 @@ const GlobalStyle = createGlobalStyle`
     overflow-x:hidden;
     cursor: none;
   }
-  h1, h3, h5{
+  h1, h2, h3, h5{
     font-family: 'Doppio';
     letter-spacing: 1.5px;
     margin: 0;
   }
   h1{
     font-size: calc(1.4rem + 7vw);
+  }
+  h3{
+    font-size: calc(1rem + 2vw);
   }
   h5{
     font-size: calc(1rem + 1vw);

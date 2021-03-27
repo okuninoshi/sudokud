@@ -8,6 +8,8 @@ const Title = styled(motion.h1)`
 display: flex;
 align-items: baseline;
 overflow-y: hidden;
+line-height: calc(1rem + 7vw);
+padding-left: 2vw;
 `
 const container = {
 	hidden: { opacity: 1 },
@@ -33,13 +35,16 @@ const word = {
 }
 const PageTitle = () => {
     return(
-      
         <Title variants={container} initial="hidden" animate="show">
-            {/* <motion.div className="bar" variants={bar}></motion.div> */}
-            <motion.span className="word" variants={word}>Ab</motion.span>
-            <motion.span className="word" variants={word}>out</motion.span>
+            <motion.span className="word" variants={word}>H</motion.span>
+            <motion.span className="word" variants={word}>i&nbsp;</motion.span>
+            <motion.span className="word" variants={word}>t</motion.span>
+            <motion.span className="word" variants={word}>h</motion.span>
+            <motion.span className="word" variants={word}>e</motion.span>
+            <motion.span className="word" variants={word}>r</motion.span>
+            <motion.span className="word" variants={word}>e</motion.span>
+            <motion.span className="word" variants={word}>!</motion.span>
         </Title>
-        
     )
 }
 

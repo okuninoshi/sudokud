@@ -11,6 +11,48 @@ import Container from '../components/Container'
 const Section = styled(motion.section)`
  padding:5vh 5vw;
  min-height:100vh;
+.rect-container{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+  width:100%;
+  height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  .rect{
+    transform-origin: 50%;
+    position: absolute;
+  } 
+  .rect1{
+    width:100vh;
+    height:100vh;
+    border: 1px solid ${props => props.theme.palette.purplePlum};
+    left:calc(100% - 50vh);
+    top:0;
+  }
+  .rect2{
+    width: calc(100vh / 1.618);
+    height: calc(100vh / 1.618);
+    border: 1px solid ${props => props.theme.palette.chinaPink};
+    left: calc(100% - (50vh / 1.618));
+  }
+  .rect3{
+    width: calc(100vh / (1.618*2));
+    height: calc(100vh / (1.618*2));
+    border: 1px solid ${props => props.theme.palette.macaroniAndChees};
+    left: calc(100% - (50vh / (1.618*2)));
+  }
+  .rect4{
+    width: calc(100vh / (1.618*4));
+    height: calc(100vh / (1.618*4));
+    border: 1px solid ${props => props.theme.palette.keyLime};
+    left: calc(100% - (50vh / (1.618*4)));
+  }
+}
+
 `
 const ContactPage = ({location, transitionStatus, entry, exit }) => {
   const path = location.pathname
@@ -48,34 +90,36 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
                 <Form />
             </div>
             </Container>
-            {/* <Circles /> */}
+            <div className="rect-container">
+              <Rect />
+            </div>
         </Section>)
       }
     </Layout>
   )
 };
-const circles =["circle1", "circle2" , "circle3", "circle4"]
-const Circles = () => {
+const rect =["rect1", "rect2" , "rect3", "rect4"]
+const Rect = () => {
   return(
     <React.Fragment>
-      {circles.map((item, id) => {
+      {rect.map((item, id) => {
         return(
           <motion.div
           key={id}
           initial={{
             scale:0,
-            rotate: 45,
           }}
           animate={{
             scale:1,
+            rotate: 45 + (45 * id),
           }}
           transition={{
             type: "spring",
             mass:15,
             damping:70,
-            delay: 0.4 * id,
+            delay: 0.4 * id
           }}
-          className={`circle ${item}`}></motion.div>
+          className={`rect ${item}`}></motion.div>
           )
         })
       }

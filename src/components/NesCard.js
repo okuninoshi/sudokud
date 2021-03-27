@@ -16,10 +16,10 @@ const Card = styled(motion.div)`
         position:absolute;
         bottom:-10px;
         left:0px;
-        width:300px;
+        width:270px;
         height:10px;
-        background: #402b35;
-        transition: all 0.3s ease;
+        background: ${props => props.isDark ? '#141212' : 'lightgray' };
+        transition: all 0.25s ease;
     }
     &:hover{
         box-shadow:none;
@@ -31,16 +31,14 @@ const Card = styled(motion.div)`
     }
     transition: all 0.3s ease;
     .published{
-        font-size:15px;
-        padding:3px;
-        color: #fff5f6;
-	    text-shadow: 0 0 2px #000, 0 0 10px #1c1124, 0 0 5px #007bff, 0 0 25px #1c1124;
+        font-size: 15px;
+        padding: 3px;
+        color: ${props => props.theme.palette.Liberty};
     }
 `
 const CardBody = styled.div`
-    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 0% 99%);
-    padding:15px 0 0 0;
-    border: 1px solid deeppink;
+    clip-path: polygon(0% 0%, 100% 0, 100% 75%, 0% 95%);
+    padding:0;
 `
 const CardFooter = styled.div`
     width:100%;
@@ -49,14 +47,17 @@ const CardFooter = styled.div`
         transform-origin:left top;
     }
     .title{
-        color:${props => props.theme.palette.arctic_lime};
+        color:${props => props.theme.palette.chinaPink};
     }
-    .excerpt{color:${props => props.theme.palette.cultured};}
+    .excerpt{
+        color:${props => props.theme.palette.purplePlum};
+        font-size: calc(8px + 1vw);
+        }
 
 `
 
 
-const NesCard = ({ thumbnail, title, slug, excerpt, published }) => {
+const NesCard = ({ title, slug, excerpt }) => {
     const { state } = useContext(Context)
     // const [POP] = useSound(
     //     'audio/hoverIn.wav', { volume: 0.5 }
@@ -66,13 +67,13 @@ const NesCard = ({ thumbnail, title, slug, excerpt, published }) => {
             <Card isDark={state.isDark}
                 // onHoverEnd={() => (POP())}
             >
-                <time className="published"> {published} </time>
+                {/* <time className="published"> {published} </time> */}
                 <CardBody>
                     <StaticImage src="../images/portrait.png" alt={title} />
                 </CardBody>
                 <CardFooter>
                     <div className="footer-content">
-                        <h3 className="title">{title}</h3>
+                        <h2 className="title">{title}</h2>
                         <p className="excerpt"> {excerpt} </p>
                     </div>
                 </CardFooter>

@@ -18,7 +18,6 @@ const Nav = styled(motion.nav)`
     }
  `
 export default function Navigation({path}) {
-    console.log("navigation : ", path)
     return (
         <React.Fragment>
             {

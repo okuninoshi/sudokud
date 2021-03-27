@@ -6,6 +6,10 @@ import ToggleDarkMode from './buttons/ToggleDarkMode'
 import GlobalStyle from './GlobalStyle'
 import Navigation from './Navigation'
 import {isBrowser} from 'react-device-detect'
+import styled from 'styled-components'
+
+
+
 
 const Layout = ({ children, pathname }) => {
   const { state } = useContext(Context)
@@ -17,10 +21,41 @@ const Layout = ({ children, pathname }) => {
       <main>
           {children}
       </main>
+      <Canvas />
     </Fragment>
   )
 };
 
+
+const Canvas = styled.canvas`
+position: fixed;
+border:1px solid deeppink;
+top: -50vh;
+left:-50vw;
+width:200vw;
+height:200vh;
+background: url('/noise-transparent.png') repeat 50%;
+background-size:30rem;
+opacity:0.48;
+z-index:99;
+pointer-events:none;
+animation:noise 0.3s infinite;
+@keyframes noise {
+  0%{
+    transform:translate(0)
+    }
+  10%{transform:translate(-5%,-5%)}
+  20%{transform:translate(-10%,5%)}
+  30%{transform:translate(5%,-10%)}
+  40%{transform:translate(-5%,15%)}
+  50%{transform:translate(-10%,5%)}
+  60%{transform:translate(15%)}
+  70%{transform:translateY(10%)}
+  80%{transform:translate(-15%)}
+  90%{transform:translate(10%,5%)}
+  to{transform:translate(5%)}
+  }
+`
 
 const NavBar = ({pathname, isDark}) => {
   return(
