@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useContext, useState } from 'react'
 import Context from '../store/context'
 import styled from 'styled-components'
@@ -7,8 +7,10 @@ import {motion} from 'framer-motion'
 import FancadeButton from './buttons/FancadeStyleButton'
 import { useForm } from 'react-hook-form'
 import  axios from  'axios'
+import useClickAway from '../hooks/useClickAway'
 
 const Faurme = styled.form`
+position: relative;
 display: flex; 
 flex-direction: column;
 padding: 5vh 0;
@@ -66,7 +68,11 @@ outline-color: ${props => props.theme.palette.purplePlum};
 const Form = () => {
     const { state } = useContext(Context)
     const [status, setStatus ] = useState(null)
-
+    const ref = useRef(null)
+    useClickAway(ref, () => {
+        //reset status to null when clicked outside the alert
+        setStatus('')
+      });
     const {register, handleSubmit, errors, watch, reset} = useForm()
     const Email = watch('email')
     const Message = watch('message')
@@ -144,10 +150,26 @@ const Form = () => {
                 </motion.div>
             }
             {
-            status === 200 &&
-            <div>
-                Thank you !
-            </div>
+                status === 200 &&
+                <div ref={ref} style={{
+                    position: "absolute",
+                    top:"0",
+                    left:"0",
+                    background:"transparent",
+                    backdropFilter: "blur(8px)",
+                    width:"100%",
+                    height:"100%",
+                }}>
+                    <p style={{
+                        width:"100%",
+                        height:"100%",
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}>
+                        Thank you !
+                    </p>
+                </div>
             }
         </Faurme>
     )

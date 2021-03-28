@@ -28,28 +28,53 @@ export default function Navigation({path}) {
                     return(
                         <Nav>
                             {path !== "/about" &&
-                                <TransitionLink
-                                    id="about"
-                                    className="link"
-                                    to="/about"
-                                    exit={{ 
-                                        length: 0.5,
-                                        state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
-                                    }}
-                                    entry={{ 
-                                        delay: 0.5,
-                                        state: { x: -window.innerWidth }
-                                    }}
-                                    >
-                                    ABOUT
-                                </TransitionLink>}
+                                <motion.span
+                                initial={{
+                                    opacity: 0,
+                                    x:-10,
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    x:0,
+                                }}
+                                transition={{
+                                    duration: 0.8,
+                                }}
+                                >
+                                    <TransitionLink
+                                        id="about"
+                                        className="link"
+                                        to="/about"
+                                        exit={{ 
+                                            length: 0.5,
+                                            state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
+                                        }}
+                                        entry={{ 
+                                            state: { x: -window.innerWidth }
+                                        }}
+                                        >
+                                        ABOUT
+                                    </TransitionLink>
+                                </motion.span>}
                             {path !== "/" &&
+                            <motion.span
+                            initial={{
+                                opacity: 0,
+                                x:-10,
+                            }}
+                            animate={{
+                                opacity: 1,
+                                x:0,
+                            }}
+                            transition={{
+                                duration: 0.8,
+                            }}
+                            >
                                 <TransitionLink
                                 id="home"
                                 className="link"
                                 to="/"
                                 entry={{ 
-                                    delay: 0.5,
                                     state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
                                 }}
                                 exit={{ 
@@ -58,23 +83,39 @@ export default function Navigation({path}) {
                                 }}
                                 >
                                 HOME
-                            </TransitionLink>}
+                            </TransitionLink>
+                            </motion.span>
+                            }
                             {path !== "/contact" &&
+                            <motion.span
+                            initial={{
+                                opacity: 0,
+                                x:-10,
+                            }}
+                            animate={{
+                                opacity: 1,
+                                x:0,
+                            }}
+                            transition={{
+                                duration: 0.8,
+                            }}
+                            >
                             <TransitionLink
                                 to="/contact"
                                 id="contact"
                                 className="link"
                                 exit={{ 
                                     length: 0.5,
-                                    state: { x: -window.innerWidth, opacity: 0, fromContact: true, fromAbout: false }
+                                    state: { x: -window.innerWidth + -window.innerWidth/4, opacity: 0, fromContact: true, fromAbout: false }
                                 }}
                                 entry={{ 
-                                    delay: 0.5,
                                     state: { x: window.innerWidth, }
                                 }}
                                 >
                                 CONTACT
-                            </TransitionLink>}
+                            </TransitionLink>
+                            </motion.span>
+                            }
                         </Nav>
                         )
                     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {motion} from 'framer-motion'
-import avatar from '../images/portrait.png'
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const AvatarContainer = styled(motion.div)`
@@ -15,7 +15,7 @@ overflow: hidden;
 const Avatar = () => {
     return (
     <AvatarContainer>
-        <img width="100%" src={avatar} alt="avatar" />
+        <StaticImage src="../images/avatar-small.png" alt='avatar' />
     </AvatarContainer>
     )
 }

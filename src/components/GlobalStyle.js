@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: ${props => props.theme.palette.chinaPink};
     text-decoration: none;
+    font-family: 'Doppio';
   }
 `
 export default GlobalStyle
