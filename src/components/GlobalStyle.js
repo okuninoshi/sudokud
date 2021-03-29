@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
   h1, h2, h3, h5{
-    font-family: 'Marvin Visions', sans-serif,;
+    font-family: 'Marvin Visions', sans-serif;
     letter-spacing: 1.5px;
     margin: 0;
   }
