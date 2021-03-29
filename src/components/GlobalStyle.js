@@ -13,12 +13,10 @@ const GlobalStyle = createGlobalStyle`
     margin:0;
     padding:0;
     background:${props => (props.isDark ? props.theme.dark.background : props.theme.light.background)};
-    box-sizing: border-box;
-    overflow-x:hidden;
-    cursor: none;
+    overflow-x: hidden;
   }
   h1, h2, h3, h5{
-    font-family: 'Marvin Visions', monospace;
+    font-family: 'Marvin Visions', sans-serif,;
     letter-spacing: 1.5px;
     margin: 0;
   }
@@ -39,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: ${props => props.theme.palette.chinaPink};
     text-decoration: none;
-    font-family: 'Marvin Visions', monospace;
+    font-family: 'Marvin Visions', sans-serif;
     letter-spacing: 1.2px;
   }
 `
