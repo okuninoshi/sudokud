@@ -4,15 +4,14 @@ import {motion} from 'framer-motion'
 import Context from '../store/context'
 
 const Cursor = styled(motion.div)`
-  border-radius: 50%;
   position: absolute;
   pointer-events: none;
   z-index: 25;
   transform: translate(-50%, -50%);
   transform-origin: 100% 100%;
-  border: 1px solid ${props => props.isDark ? props.theme.dark.text : '#000'};
+  border: 1px dashed ${props =>  props.theme.palette.Liberty} ;
+  backdrop-filter: hue-rotate(-90deg);
 `
-
 const VirtualCursor = () => {
     const { state } = useContext(Context)
     const [posX, setposX] = useState(0);
@@ -32,20 +31,21 @@ const VirtualCursor = () => {
       }, [posX, posY]);
     return(
         <Cursor
-        isDark={state.isDark}
-        isHovered={state.isHovered} 
-        style={{
-          top: `${posY + "px"}`,
-          left: `${posX + "px"}`,
-        }}
-        initial={{
-          width: '0px',
-          height: '0px',
-        }}
-        animate={{
-          width: state.isHovered ? '28px' : '24px',
-          height: state.isHovered ? '28px' : '24px',
-        }}
+          isDark={state.isDark}
+          isHovered={state.isHovered} 
+          style={{
+            top: `${posY + "px"}`,
+            left: `${posX + "px"}`,
+          }}
+          initial={{
+            width: '0px',
+            height: '0px',
+          }}
+          animate={{
+            width: state.isHovered ? '72px' : '32px',
+            height: state.isHovered ? '32px' : '32px',
+            borderRadius: state.isHovered ? '0%' : '50%',
+          }}
          id="virtual-cursor" />
     )
 }

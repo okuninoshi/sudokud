@@ -1,10 +1,12 @@
 import React from "react";
-// import { useState } from "react";
-// import { motion, AnimateSharedLayout } from "framer-motion";
 import styled from "styled-components";
 import { TransitionState } from 'gatsby-plugin-transition-link'
 import TransitionLink from 'gatsby-plugin-transition-link'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useContext } from 'react'
+import Context from '../store/context'
+
+
 
 const Nav = styled(motion.nav)`
     display: flex;
@@ -14,10 +16,14 @@ const Nav = styled(motion.nav)`
     padding-right: 10vw;
     .link {
         cursor: pointer;
-        padding: 4px 2vw;
+        margin: 4px 3vw;
+        padding: 6px;
     }
- `
+`
+
 export default function Navigation({path}) {
+  const { dispatch } = useContext(Context)
+
     return (
         <React.Fragment>
             {
@@ -30,11 +36,9 @@ export default function Navigation({path}) {
                             {path !== "/about" &&
                                 <motion.span
                                 initial={{
-                                    opacity: 0,
                                     x:-10,
                                 }}
                                 animate={{
-                                    opacity: 1,
                                     x:0,
                                 }}
                                 transition={{
@@ -52,6 +56,12 @@ export default function Navigation({path}) {
                                         entry={{ 
                                             state: { x: -window.innerWidth }
                                         }}
+                                        onMouseEnter= {()=> {
+                                            return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                          }}
+                                        onMouseLeave= {()=> {
+                                            return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                        }}
                                         >
                                         ABOUT
                                     </TransitionLink>
@@ -59,11 +69,9 @@ export default function Navigation({path}) {
                             {path !== "/" &&
                             <motion.span
                             initial={{
-                                opacity: 0,
                                 x:-10,
                             }}
                             animate={{
-                                opacity: 1,
                                 x:0,
                             }}
                             transition={{
@@ -81,6 +89,12 @@ export default function Navigation({path}) {
                                     length: 0.5,
                                     state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
                                 }}
+                                onMouseEnter= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                  }}
+                                onMouseLeave= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                }}
                                 >
                                 HOME
                             </TransitionLink>
@@ -89,11 +103,9 @@ export default function Navigation({path}) {
                             {path !== "/contact" &&
                             <motion.span
                             initial={{
-                                opacity: 0,
                                 x:-10,
                             }}
                             animate={{
-                                opacity: 1,
                                 x:0,
                             }}
                             transition={{
@@ -110,6 +122,12 @@ export default function Navigation({path}) {
                                 }}
                                 entry={{ 
                                     state: { x: window.innerWidth, }
+                                }}
+                                onMouseEnter= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                  }}
+                                onMouseLeave= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
                                 }}
                                 >
                                 CONTACT

@@ -1,10 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: "sudokud",
-    description: `chetoui's hamza personal website`,
-    author: `@okuninoshi`,
-    keywords: 'chetoui hamza',
-    siteUrl: 'https://sudokud.gatsbyjs.io'
+    title: "Sudokud",
+    titleTemplate: "%s ^.^ sudokud",
+    description:
+      "chetoui hamza's personal website.",
+    url: "https://sudokud.gatsbyjs.io", // No trailing slash allowed!
+    image: "/images/avatar-small.png", // Path to your image you placed in the 'static' folder
+    twitterUsername: "@okuninoshi",
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -16,7 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        icon: "src/images/avatar-small.png",
       },
     },
     "gatsby-plugin-mdx",

@@ -4,8 +4,9 @@ import styled from 'styled-components'
 import Layout from '../components/Layout';
 import Form from '../components/Form'
 import Container from '../components/Container'
-
-
+import Seo from '../components/Seo'
+import { useContext } from 'react'
+import Context from '../store/context'
 
 
 const Section = styled(motion.section)`
@@ -55,8 +56,11 @@ const Section = styled(motion.section)`
 `
 const ContactPage = ({location, transitionStatus, entry, exit }) => {
   const path = location.pathname
+  const { dispatch } = useContext(Context)
+
   return (
     <Layout pathname={path}>
+      <Seo title="Contact"/>
       { typeof window !== `undefined` && (
         <Section 
           initial={entry.state}
@@ -81,8 +85,16 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
                     I am happy to talk.
                 </p>
                 <p>
-                    Just send me a message using the form below or you can send me a DM on &nbsp;
-                    <a className="mx-2" href="https://twitter.com/okuninoshi">Twitter.</a>
+                  Just send me a message using the form below or you can send me a DM on &nbsp;
+                  <a
+                    onMouseEnter = {()=> {
+                      return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                    }}
+                    onMouseLeave= {()=> {
+                        return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                    }} className="mx-2" href="https://twitter.com/okuninoshi">
+                    Twitter.
+                  </a>
                 </p>
             </div>
             <div id="main-form">

@@ -64,6 +64,11 @@ outline-style: dashed;
 outline-width: 2px;
 outline-color: ${props => props.theme.palette.purplePlum};
 }
+.error-message{
+    color: crimson;
+    padding: 8px 0;
+    font-size: 16px;
+}
 `
 const Form = () => {
     const { state } = useContext(Context)
@@ -117,7 +122,7 @@ const Form = () => {
                     // onChange={() => (playkeySound())}
 
                 />      
-                {errors.email && "Email is required"}
+                {errors.email && <p className="error-message">email is required</p>}
             </FaurmeGroup>
             {Email && <FaurmeGroup 
                 isDark={state.isDark}
@@ -136,7 +141,7 @@ const Form = () => {
                     ref={register({ required: true, minLength: 5})}
                     // onChange={() => (playkeySound())}
                 />
-                {errors.message && "message is required"}
+                {errors.message && <p className="error-message">message is required</p>}
             </FaurmeGroup>}
             {Email && Message &&
                 <motion.div 

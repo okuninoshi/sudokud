@@ -6,13 +6,18 @@ import Context from '../../store/context'
 
 
 const FCSButton = styled(motion.button)`
-width:104px;
-height:70px;
+width:114px;
+height: auto;
 padding:0;
 margin:0;
 position:relative;
 border:0px solid transparent;
 background:transparent;
+&:focus{
+    outline-color: ${props => props.theme.palette.purplePlum};
+    outline-style: auto;
+    outline-width: 1px;
+}
 .text{
     position:absolute;
     left:0;
@@ -23,16 +28,16 @@ background:transparent;
     align-items:center;
     justify-content:center;
     font-size:1rem;
-    color:${props => props.theme.palette.cultured};
+    color: ${props => props.theme.palette.cultured};
 }
 #btn-body, #body-translate{
-    fill: #007bff;
+    fill: ${props => props.theme.light.chinaPink};
 }
 #btn-borders, #border-translate{
-    fill: #00356e;
+    fill: ${props => props.theme.palette.chinaPink};
 }
 #btn-shadow{
-    fill: #004c9e;
+    fill: ${props => props.theme.palette.chinaPink};
 }
 `
 

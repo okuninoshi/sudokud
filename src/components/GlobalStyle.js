@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     cursor: none;
   }
   h1, h2, h3, h5{
-    font-family: 'Doppio';
+    font-family: 'Marvin Visions', monospace;
     letter-spacing: 1.5px;
     margin: 0;
   }
@@ -39,7 +39,8 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: ${props => props.theme.palette.chinaPink};
     text-decoration: none;
-    font-family: 'Doppio';
+    font-family: 'Marvin Visions', monospace;
+    letter-spacing: 1.2px;
   }
 `
 export default GlobalStyle

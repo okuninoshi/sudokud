@@ -7,7 +7,7 @@ import Container from '../components/Container'
 import NesCard from '../components/NesCard';
 import PageTitle from '../components/PageTitle'
 import { graphql } from 'gatsby';
-
+import Seo from '../components/Seo'
 
 const Section = styled(motion.section)`
  padding:5vh 5vw;
@@ -101,6 +101,7 @@ const AboutPage = ({location, transitionStatus, entry, exit, data }) => {
 
   return (
     <Layout pathname={path}>
+      <Seo title="About"/>
       <React.Fragment>
         {
           typeof window !== `undefined` && (

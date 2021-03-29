@@ -1,15 +1,10 @@
 import React from 'react'
-// import {useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Container from '../components/Container'
 import HeroTitle from '../components/HeroTitle'
 import styled from 'styled-components'
-// import { TransitionState } from 'gatsby-plugin-transition-link'
 import Layout from '../components/Layout';
-// import { TransitionPortal } from "gatsby-plugin-transition-link";
-
-
-
+import Seo from '../components/Seo'
 
 const Section = styled(motion.section)`
  padding:5vh 5vw;
@@ -68,6 +63,7 @@ const HomePage = ({ location, transitionStatus, exit, entry }) => {
   const path = location.pathname
   return (
     <Layout pathname={path}>
+      <Seo title="Home"/>
       {
         typeof window !== `undefined` && (
         <Section 
@@ -84,7 +80,11 @@ const HomePage = ({ location, transitionStatus, exit, entry }) => {
         }>
           <Container>
             <HeroTitle />
-            <motion.p className="hero-about-me" variants={item}>web developer, a designer, and a JAMSTACK enthusiast</motion.p>
+            <motion.p 
+            className="hero-about-me" 
+            variants={item}>
+              self taught web developer, a designer, and a JAMSTACK enthusiast
+            </motion.p>
           </Container>
           <Circles/>
         </Section>)
