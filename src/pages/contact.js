@@ -12,6 +12,10 @@ import Context from '../store/context'
 const Section = styled(motion.section)`
  padding:5vh 5vw;
  min-height:100vh;
+ .twitter{
+   font-size: 1rem;
+   letter-spacing:2px;
+ }
 .rect-container{
   position: absolute;
   top:0;
@@ -77,10 +81,10 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
           <Container>
             <div style={{
               margin: 'auto',
-              maxWidth: '75vw',
+              maxWidth: '70vw',
             }}>
                 <p>
-                    Got a burning question regarding <em>JAMStack</em>,
+                    Got a burning question regarding <em>Jamstack</em>,
                     Need a new <em>Website</em>, or just anything in general.
                     I am happy to talk.
                 </p>
@@ -92,7 +96,7 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
                     }}
                     onMouseLeave= {()=> {
                         return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                    }} className="mx-2" href="https://twitter.com/okuninoshi">
+                    }} className="twitter" href="https://twitter.com/okuninoshi">
                     Twitter.
                   </a>
                 </p>

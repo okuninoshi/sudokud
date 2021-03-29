@@ -32,8 +32,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: calc(1rem + 1vw);
   }
   p{
-    font-size: calc(0.625rem + 1.2vw);
-    line-height: 1.875rem;
+    font-size: calc(0.625rem + 1vw);
+    line-height: calc(0.625rem + 1.8vw);
     margin: 0;
   }
   a{

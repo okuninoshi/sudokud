@@ -4,7 +4,7 @@ module.exports = {
     titleTemplate: "%s ^.^ sudokud",
     description:
       "chetoui hamza's personal website.",
-    url: "https://sudokud.gatsbyjs.io", // No trailing slash allowed!
+    siteUrl: "https://sudokud.gatsbyjs.io", // No trailing slash allowed!
     image: "/images/avatar-small.png", // Path to your image you placed in the 'static' folder
     twitterUsername: "@okuninoshi",
   },
