@@ -30,8 +30,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: calc(1rem + 1vw);
   }
   p{
-    font-size: calc(0.625rem + 1vw);
-    line-height: calc(0.625rem + 1.8vw);
+    font-size: calc(0.625rem + 1.4vw);
+    line-height: calc(0.875rem + 1.8vw);
     margin: 0;
   }
   a{

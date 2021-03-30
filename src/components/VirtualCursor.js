@@ -9,8 +9,8 @@ const Cursor = styled(motion.div)`
   z-index: 25;
   transform: translate(-50%, -50%);
   transform-origin: 100% 100%;
-  border: 1px dashed ${props =>  props.theme.palette.Liberty} ;
-  backdrop-filter: hue-rotate(-90deg);
+  border: 2px dashed ${props =>  props.theme.palette.Liberty};
+  backdrop-filter: hue-rotate(290deg);
 `
 const VirtualCursor = () => {
     const { state } = useContext(Context)
@@ -42,7 +42,7 @@ const VirtualCursor = () => {
             height: '0px',
           }}
           animate={{
-            width: state.isHovered ? '72px' : '32px',
+            width: state.isHovered ? '80px' : '32px',
             height: state.isHovered ? '32px' : '32px',
             borderRadius: state.isHovered ? '0%' : '50%',
           }}

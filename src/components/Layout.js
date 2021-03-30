@@ -9,14 +9,12 @@ import {isBrowser} from 'react-device-detect'
 import styled from 'styled-components'
 
 
-
-
-const Layout = ({ children, pathname }) => {
+const Layout = ({ children }) => {
   const { state } = useContext(Context)
   return (
     <Fragment>
       <GlobalStyle isDark={state.isDark} />
-      <NavBar pathname={pathname} isDark={state.isDark}/>
+      <NavBar isDark={state.isDark}/>
       {isBrowser && <VirtualCursor />}
       <main>
           {children}
@@ -57,26 +55,24 @@ animation:noise 0.3s infinite;
   }
 `
 
-const NavBar = ({pathname, isDark}) => {
+const NavBar = () => {
   return(
     <div style={{
       position: 'fixed',
       top: 0,
-      padding:'2vh 5vw',
       width:'100%',
+      display:"flex",
+      alignItems:"center",
       zIndex: 20,
-      display: "flex",
-      flexDirection: 'row',
-      alignItems:'center',
-      // background: isDark ? "#272525" : "#F1F1F2",
-      background: 'transparent',
-      backdropFilter: 'blur(9px)'
+      padding:"2vh 5vw",
+      background: '#00000000',
+      backdropFilter: 'blur(4px)',
     }}>
       <Avatar />
       <div style={{
         flexGrow: 1,
       }}>
-        <Navigation path={pathname}/>
+        <Navigation />
       </div>
       <ToggleDarkMode />
     </div>

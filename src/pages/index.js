@@ -25,25 +25,25 @@ const Section = styled(motion.section)`
  .circle1{
   width:100vh;
   height:100vh;
-  background: ${props => props.theme.palette.purplePlum};
+  border: 2px solid ${props => props.theme.palette.purplePlum};
   left:calc(100% - 50vh);
  }
  .circle2{
   width: calc(100vh / 1.618);
   height: calc(100vh / 1.618);
-  background: ${props => props.theme.palette.chinaPink};
+  border: 2px solid ${props => props.theme.palette.chinaPink};
   left: calc(100% - (50vh / 1.618));
  }
  .circle3{
   width: calc(100vh / (1.618*2));
   height: calc(100vh / (1.618*2));
-  background: ${props => props.theme.palette.macaroniAndChees};
+  border: 2px solid ${props => props.theme.palette.macaroniAndChees};
   left: calc(100% - (50vh / (1.618*2)));
  }
  .circle4{
   width: calc(100vh / (1.618*4));
   height: calc(100vh / (1.618*4));
-  background: ${props => props.theme.palette.keyLime};
+  border: 2px solid ${props => props.theme.palette.keyLime};
   left: calc(100% - (50vh / (1.618*4)));
  }
 `

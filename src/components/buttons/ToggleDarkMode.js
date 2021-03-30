@@ -4,18 +4,17 @@ import Context from '../../store/context'
 import styled from "styled-components"
 import SwitchMode from './SwitchMode'
 
-const Classes = styled.div`
-.switch {
-    width: 35px;
-    height: 35px;
-    position:relative;
-    display: flex;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    cursor: pointer;
-  }
-
+const Button = styled.button`
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid transparent;
+  padding:0;
+  position:relative;
+  display: flex;
+  align-items:center;
+  justify-content:center; 
 `
 
 const ToggleDarkMode = () => {
@@ -32,16 +31,14 @@ const ToggleDarkMode = () => {
     )
   }
   return (
-    <Classes>
-      <div
-        className="switch"
+    <Button
         onClick={toggleSwitch}
-        role="button"
-        data-toggle="tooltip" data-placement="bottom" title={state.isDark ? "Light mode" : "Dark mode"}
-        tabIndex="0">
+        data-toggle="tooltip" 
+        data-placement="bottom" 
+        title={state.isDark ? "Light mode" : "Dark mode"}
+        >
           <SwitchMode isDark={state.isDark}/>
-      </div>
-    </Classes>
+    </Button>
   )
 }
 

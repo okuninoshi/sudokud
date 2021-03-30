@@ -5,17 +5,15 @@ import { StaticImage } from "gatsby-plugin-image"
 
 
 const AvatarContainer = styled(motion.div)`
-border-radius: 50%;
-width: calc(28px + 2.5vw);
-height: calc(28px + 2.5vw);
-overflow: hidden;
+width: calc(35px + 2.5vw);
+height: calc(35px + 2.5vw);
 `
 
 
 const Avatar = () => {
     return (
     <AvatarContainer>
-        <StaticImage src="../images/avatar-small.png" alt='avatar' />
+        <StaticImage src="../images/icon.png" alt='avatar' placeholder="blured"/>
     </AvatarContainer>
     )
 }

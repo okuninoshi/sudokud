@@ -11,19 +11,19 @@ import Context from '../store/context'
 const Nav = styled(motion.nav)`
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     position:relative;
-    padding-right: 10vw;
     .link {
         cursor: pointer;
-        margin: 4px 3vw;
-        padding: 6px;
+        margin: 0 1vw;
+        padding: 4px;
     }
 `
 
-export default function Navigation({path}) {
-  const { dispatch } = useContext(Context)
+export default function Navigation() {
+  const { state, dispatch } = useContext(Context)
 
+  const activeStyle = { textDecoration: `line-through ${state.isDark ? '#fff' : '#000'} wavy 2.5px`}
     return (
         <React.Fragment>
             {
@@ -33,54 +33,31 @@ export default function Navigation({path}) {
                 ({exit}) => { 
                     return(
                         <Nav>
-                            {path !== "/about" &&
-                                <motion.span
-                                initial={{
-                                    x:-10,
+                            <TransitionLink
+                                id="about"
+                                className="link"
+                                activeStyle={activeStyle}
+                                to="/about"
+                                exit={{ 
+                                    length: 0.5,
+                                    state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
                                 }}
-                                animate={{
-                                    x:0,
+                                entry={{ 
+                                    state: { x: -window.innerWidth }
                                 }}
-                                transition={{
-                                    duration: 0.8,
+                                onMouseEnter= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                                    }}
+                                onMouseLeave= {()=> {
+                                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
                                 }}
                                 >
-                                    <TransitionLink
-                                        id="about"
-                                        className="link"
-                                        to="/about"
-                                        exit={{ 
-                                            length: 0.5,
-                                            state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
-                                        }}
-                                        entry={{ 
-                                            state: { x: -window.innerWidth }
-                                        }}
-                                        onMouseEnter= {()=> {
-                                            return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                                          }}
-                                        onMouseLeave= {()=> {
-                                            return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                                        }}
-                                        >
-                                        ABOUT
-                                    </TransitionLink>
-                                </motion.span>}
-                            {path !== "/" &&
-                            <motion.span
-                            initial={{
-                                x:-10,
-                            }}
-                            animate={{
-                                x:0,
-                            }}
-                            transition={{
-                                duration: 0.8,
-                            }}
-                            >
-                                <TransitionLink
+                                ABOUT
+                            </TransitionLink>
+                            <TransitionLink
                                 id="home"
                                 className="link"
+                                activeStyle={activeStyle}
                                 to="/"
                                 entry={{ 
                                     state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
@@ -91,31 +68,18 @@ export default function Navigation({path}) {
                                 }}
                                 onMouseEnter= {()=> {
                                     return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                                  }}
+                                    }}
                                 onMouseLeave= {()=> {
                                     return dispatch({ type: "TOGGLE_HOVERED_MODE" })
                                 }}
-                                >
+                            >
                                 HOME
                             </TransitionLink>
-                            </motion.span>
-                            }
-                            {path !== "/contact" &&
-                            <motion.span
-                            initial={{
-                                x:-10,
-                            }}
-                            animate={{
-                                x:0,
-                            }}
-                            transition={{
-                                duration: 0.8,
-                            }}
-                            >
                             <TransitionLink
                                 to="/contact"
                                 id="contact"
                                 className="link"
+                                activeStyle={activeStyle}
                                 exit={{ 
                                     length: 0.5,
                                     state: { x: -window.innerWidth + -window.innerWidth/4, opacity: 0, fromContact: true, fromAbout: false }
@@ -132,8 +96,6 @@ export default function Navigation({path}) {
                                 >
                                 CONTACT
                             </TransitionLink>
-                            </motion.span>
-                            }
                         </Nav>
                         )
                     }

@@ -81,7 +81,7 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
           <Container>
             <div style={{
               margin: 'auto',
-              maxWidth: '70vw',
+              maxWidth: '85%',
             }}>
                 <p>
                     Got a burning question regarding <em>Jamstack</em>,
