@@ -36,7 +36,6 @@ const Section = styled(motion.section)`
     height:100vh;
     border: 2px solid ${props => props.theme.palette.purplePlum};
     left:calc(100% - 50vh);
-    top:0;
   }
   .rect2{
     width: calc(100vh / 1.618);
@@ -78,6 +77,9 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
             ? {duration: exit.length}
             : {duration: 0.5}
           }>
+          <div className="rect-container">
+            <Rect />
+          </div>
           <Container>
             <div style={{
               margin: 'auto',
@@ -105,9 +107,6 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
                 <Form />
             </div>
             </Container>
-            <div className="rect-container">
-              <Rect />
-            </div>
         </Section>)
       }
     </Layout>

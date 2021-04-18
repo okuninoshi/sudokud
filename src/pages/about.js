@@ -81,7 +81,6 @@ const AboutPage = ({location, transitionStatus, entry, exit, data }) => {
                       <p>
                         Welcome to my personal site where I drop things related to the web and specifically to the jamstack.
                       </p>
-                      <p>I categorize my self as a frontend developer. <i>well that was::before the jamstack.</i></p>
                       <p>I design and develop  webapp whith the focus on the speed and user experience.</p>
                     </motion.div>
                     <h3>tools i use.</h3>

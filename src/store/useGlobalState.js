@@ -9,10 +9,10 @@ const reducer = (state, action) => {
                 ...state,
                 isDark: !state.isDark
             }
-        case "TOGGLE_DRAWER":
+        case "TOGGLE_INPUT":
             return {
                 ...state,
-                isOpen: !state.isOpen
+                INPUT_HOVERED: !state.INPUT_HOVERED
             }
         case "TOGGLE_HOVERED_MODE":
             return {
@@ -28,7 +28,7 @@ const reducer = (state, action) => {
 const useGlobalState = () => {
     const [state, dispatch] = useReducer(reducer, {
         isDark: storage.getItem("isDark") ? JSON.parse(storage.getItem("isDark")) : false,
-        isOpen: false,
+        INPUT_HOVERED: false,
         isHovered: false,
     })
 

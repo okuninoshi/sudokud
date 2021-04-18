@@ -16,7 +16,7 @@ flex-direction: column;
 padding: 5vh 0;
 margin: auto;
 max-width: calc(200px + 50vw);
-margin-top: 2rem;
+height:60vh;
 .button-container {
     margin: auto;
     margin-top: 16px;
@@ -43,6 +43,7 @@ input {
     width: calc(200px + 25vw);
     height: 48px;
     background: ${props => props.theme.dark.background};
+    cursor: none;
 }
 input:focus{
 outline-style: dashed;
@@ -58,6 +59,7 @@ textarea{
     color: ${props => props.theme.dark.text};
     background: ${props => props.theme.dark.background};
     border: 0.5px solid ${props => props.theme.palette.chinaPink};
+    cursor: none;
 }
 textarea:focus{
 outline-style: dashed;
@@ -71,7 +73,7 @@ outline-color: ${props => props.theme.palette.purplePlum};
 }
 `
 const Form = () => {
-    const { state } = useContext(Context)
+    const { state, dispatch } = useContext(Context)
     const [status, setStatus ] = useState(null)
     const ref = useRef(null)
     useClickAway(ref, () => {
@@ -119,8 +121,12 @@ const Form = () => {
                     id="email"
                     placeholder="Email@sample.xyz"
                     ref={register({required: true})}
-                    // onChange={() => (playkeySound())}
-
+                    onMouseEnter= {()=> {
+                        return dispatch({ type: "TOGGLE_INPUT" })
+                        }}
+                    onMouseLeave= {()=> {
+                        return dispatch({ type: "TOGGLE_INPUT" })
+                    }}
                 />      
                 {errors.email && <p className="error-message">email is required</p>}
             </FaurmeGroup>
@@ -139,7 +145,12 @@ const Form = () => {
                     id="message"
                     placeholder="Hello world"
                     ref={register({ required: true, minLength: 5})}
-                    // onChange={() => (playkeySound())}
+                    onMouseEnter= {()=> {
+                        return dispatch({ type: "TOGGLE_INPUT" })
+                        }}
+                    onMouseLeave= {()=> {
+                        return dispatch({ type: "TOGGLE_INPUT" })
+                    }}
                 />
                 {errors.message && <p className="error-message">message is required</p>}
             </FaurmeGroup>}
@@ -160,10 +171,10 @@ const Form = () => {
                     position: "absolute",
                     top:"0",
                     left:"0",
-                    background:"transparent",
-                    backdropFilter: "blur(8px)",
+                    backgroundImage:"linear-gradient(72deg, #D97192, #FAB589)",
                     width:"100%",
                     height:"100%",
+                    borderRadius: 6,
                 }}>
                     <p style={{
                         width:"100%",

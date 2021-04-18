@@ -9,7 +9,7 @@ const Cursor = styled(motion.div)`
   z-index: 25;
   transform: translate(-50%, -50%);
   transform-origin: 100% 100%;
-  border: 2px dashed ${props =>  props.theme.palette.Liberty};
+  border: 2px double ${props =>  props.theme.palette.Liberty};
   backdrop-filter: hue-rotate(290deg);
 `
 const VirtualCursor = () => {
@@ -19,6 +19,7 @@ const VirtualCursor = () => {
 
     useEffect(() => {
         window.addEventListener('mousemove', logKey);
+        window.addEventListener('scroll', logKey);
         function logKey(e) {
           return [
             setposX(e.pageX),
@@ -31,8 +32,6 @@ const VirtualCursor = () => {
       }, [posX, posY]);
     return(
         <Cursor
-          isDark={state.isDark}
-          isHovered={state.isHovered} 
           style={{
             top: `${posY + "px"}`,
             left: `${posX + "px"}`,
@@ -40,11 +39,13 @@ const VirtualCursor = () => {
           initial={{
             width: '0px',
             height: '0px',
+            opacity: 0,
           }}
           animate={{
-            width: state.isHovered ? '80px' : '32px',
+            opacity: 1,
+            width: state.isHovered ? '80px' : state.INPUT_HOVERED ? "1px" : '32px',
             height: state.isHovered ? '32px' : '32px',
-            borderRadius: state.isHovered ? '0%' : '50%',
+            borderRadius: state.isHovered || state.INPUT_HOVERED ? '0%' : '50%',
           }}
          id="virtual-cursor" />
     )

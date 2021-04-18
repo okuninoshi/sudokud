@@ -44,7 +44,7 @@ align-items: center;
 const Techs = () => {
     return (
         <TechSlideshow >
-            <span class="mover-1">
+            <span className="mover-1">
                 {tools.map(({name, imgUrl} ,id) => {
                     return(
                     <span key={id} className="tool">
@@ -53,7 +53,7 @@ const Techs = () => {
                     )})
                 }
             </span>
-            <span class="mover-2">
+            <span className="mover-2">
                 {tools.map(({name, imgUrl} ,id) => {
                     return(
                     <span key={id} className="tool">
