@@ -43,9 +43,9 @@ const VirtualCursor = () => {
           }}
           animate={{
             opacity: 1,
-            width: state.isHovered ? '80px' : state.INPUT_HOVERED ? "1px" : '32px',
-            height: state.isHovered ? '32px' : '32px',
-            borderRadius: state.isHovered || state.INPUT_HOVERED ? '0%' : '50%',
+            width: state.isHovered ? '80px' : state.INPUT_HOVERED ? "1px" : state.CARD_HOVERED ? '80px' : '32px',
+            height: state.isHovered ? '32px' : state.CARD_HOVERED ? '80px' : '32px',
+            borderRadius: state.isHovered || state.INPUT_HOVERED ? '0%' :  '50%',
           }}
          id="virtual-cursor" />
     )

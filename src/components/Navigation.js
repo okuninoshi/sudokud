@@ -39,7 +39,7 @@ export default function Navigation() {
                                 activeStyle={activeStyle}
                                 to="/about"
                                 exit={{ 
-                                    length: 0.5,
+                                    length: 0.3,
                                     state: { x: window.innerWidth, opacity: 0, fromAbout: true, fromContact: false }
                                 }}
                                 entry={{ 
@@ -63,7 +63,7 @@ export default function Navigation() {
                                     state: {x: exit.state.fromAbout ? window.innerWidth : -window.innerWidth}
                                 }}
                                 exit={{ 
-                                    length: 0.5,
+                                    length: 0.3,
                                     state: { x: window.innerWidth, opacity: 0, fromContact: false, fromAbout: false }
                                 }}
                                 onMouseEnter= {()=> {
@@ -81,7 +81,7 @@ export default function Navigation() {
                                 className="link"
                                 activeStyle={activeStyle}
                                 exit={{ 
-                                    length: 0.5,
+                                    length: 0.3,
                                     state: { x: -window.innerWidth + -window.innerWidth/4, opacity: 0, fromContact: true, fromAbout: false }
                                 }}
                                 entry={{ 

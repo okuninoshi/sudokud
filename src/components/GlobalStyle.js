@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
   h1{
     font-size: calc(1.4rem + 7vw);
   }
+  h2{
+    font-size: calc(1.2rem + 3vw);
+  }
   h3{
     font-size: calc(1rem + 2vw);
   }
@@ -30,8 +33,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: calc(1rem + 1vw);
   }
   p{
-    font-size: calc(0.625rem + 1.4vw);
-    line-height: calc(0.875rem + 1.8vw);
+    font-size: calc(0.625rem + 1vw);
+    line-height: calc(0.875rem + 1.4vw);
     margin: 0;
   }
   a{

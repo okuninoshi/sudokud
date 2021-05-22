@@ -14,6 +14,11 @@ const reducer = (state, action) => {
                 ...state,
                 INPUT_HOVERED: !state.INPUT_HOVERED
             }
+        case "TOGGLE_CARD":
+            return {
+                ...state,
+                CARD_HOVERED: !state.CARD_HOVERED
+            }
         case "TOGGLE_HOVERED_MODE":
             return {
                 ...state,

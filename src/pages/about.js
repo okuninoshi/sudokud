@@ -3,15 +3,15 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
 import Container from '../components/Container'
-import NesCard from '../components/NesCard';
+// import NesCard from '../components/NesCard';
+import Cart from '../components/Cart';
 import PageTitle from '../components/PageTitle'
 import Techs from '../components/TechIUse'
-
 import { graphql } from 'gatsby';
 import Seo from '../components/Seo'
 
 const Section = styled(motion.section)`
- padding:5vh 5vw;
+ padding:5vh 0;
  min-height: 100vh;
  position:relative;
  .about-bio {
@@ -20,27 +20,25 @@ const Section = styled(motion.section)`
 `
 const FlexContainer = styled.div`
  display: flex;
- justify-content: center;
  flex-wrap: wrap;
  margin-top: 5vh;
 `
 const FlexItem = styled.div`
  width:fit-content;
- margin: 5vh 5vw;
+ margin: 5vh 0;
+ margin-right: 2vw;
 `
 const projects = [
   {
-    name: " Elevatin",
     tag: "<span> Nuxtjs </span> <span> Vuetify </span> <span> Netlify </span>",
     slug: "https://elevatin.agency",
-    excerpt: "Agence de branding et de stratégie.",
+    excerpt: "digital web Agency.",
   },
   {
-    name: "Andt",
     tag: "<span> Gatsbyjs </span> <span> MaterialUi </span> <span> Netlify </span>",
     slug: "https://andt-dz.com",
-    excerpt: "Agence Nationale de Développement du Tourisme.",
-  }
+    excerpt: "governement website.",
+  },
 ]
 
 
@@ -94,13 +92,12 @@ const AboutPage = ({location, transitionStatus, entry, exit, data }) => {
                             //add the image array as props to the project object
                             return (
                               <FlexItem key={id}>
-                                <NesCard
-                                key={id}
-                                title={project.name}
-                                slug={project.slug}
-                                excerpt={project.excerpt}
-                                thumbnail={project.img[id]}
-                                tag={project.tag}
+                                <Cart
+                                  key={id}
+                                  slug={project.slug}
+                                  excerpt={project.excerpt}
+                                  thumbnail={project.img[id]}
+                                  tag={project.tag}
                                 />
                               </FlexItem>
                             )
@@ -125,7 +122,10 @@ query projectsImageQuery {
       node {
         id
         childImageSharp {
-          gatsbyImageData(placeholder: TRACED_SVG)
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }

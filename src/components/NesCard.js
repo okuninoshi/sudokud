@@ -12,7 +12,7 @@ const Card = styled(motion.div)`
     padding:16px;
     box-shadow: -16px 14px 6px 0 ${props => props.isDark ? "#0e0e0e" : "#808080"};
     color: ${props => props.isDark ? props.theme.dark.text : props.theme.dark.background};
-    transition: all 0.3s ease;‚
+    transition: all 0.3s ease;
     &:after{
         content:"";
         position:absolute;
