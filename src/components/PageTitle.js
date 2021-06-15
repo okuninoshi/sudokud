@@ -9,7 +9,7 @@ display: flex;
 align-items: baseline;
 overflow-y: hidden;
 line-height: calc(1rem + 7vw);
-padding-left: 2vw;
+padding-left: 5vw;
 `
 const container = {
 	hidden: { opacity: 1 },

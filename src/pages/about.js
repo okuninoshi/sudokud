@@ -35,15 +35,14 @@ const projects = [
     excerpt: "digital web Agency.",
   },
   {
-    tag: "<span> Gatsbyjs </span> <span> MaterialUi </span> <span> Netlify </span>",
+    tag: "<span> Gatsbyjs </span> <span> MaterialUi </span> <span> Netlify-cms </span>",
     slug: "https://andt-dz.com",
     excerpt: "governement website.",
   },
 ]
 
 
-const AboutPage = ({location, transitionStatus, entry, exit, data }) => {
-  const path = location.pathname
+const AboutPage = ({ transitionStatus, entry, exit, data }) => {
   const { edges } = data.allFile
 
   return (
@@ -81,10 +80,10 @@ const AboutPage = ({location, transitionStatus, entry, exit, data }) => {
                       </p>
                       <p>I design and develop  webapp whith the focus on the speed and user experience.</p>
                     </motion.div>
-                    <h3>tools i use.</h3>
+                    <h3>by using.</h3>
                     <Techs />
                     <div style={{marginTop: "10vh"}}>
-                      <h3>selected projects.</h3>
+                      <h3>i built.</h3>
                       <FlexContainer>
                         {
                           projects.map((project, id) => {

@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const tools = [ {name: "Reactjs", color:"#61dafb", imgUrl:"techs-React.svg"},
-{name: "Vuejs", color:"#42b983", imgUrl:"techs-Vue.svg"},
-{name: "Gatsbyjs", color:"#663399", imgUrl:"techs-Gatsby.svg"},
-{name: "Netlify", color:"#15847d", imgUrl:"techs-Netlify.svg"},
-{name: "Inkscape", color:"#c9fa4b", imgUrl:"techs-Inkscape.svg"},
-{name: "Nuxtjs", color:"#2ec58d", imgUrl:"techs-Nuxt.svg"},
-{name: "Strapi", color:"#9179ff", imgUrl:"techs-Strapi.svg"},
-{name: "Graphql", color:"#e00097", imgUrl:"techs-Graphql.svg"},]
+const tools = [ 
+    {name: "Netlify", color:"#15847d", imgUrl:"techs-Netlify.svg"},
+    {name: "Strapi", color:"#9179ff", imgUrl:"techs-Strapi.svg"},
+    {name: "Gatsbyjs", color:"#663399", imgUrl:"techs-Gatsby.svg"},
+    {name: "Graphql", color:"#e00097", imgUrl:"techs-Graphql.svg"},
+    {name: "Nextjs", color:"#000000", imgUrl:"techs-Nextjs.svg"},
+    {name: "Vercel", color:"#000000", imgUrl:"techs-Vercel.svg"},
+    {name: "Jamstack", color:"pink", imgUrl:"techs-Jamstack.svg"}
+]
 
 const TechSlideshow = styled.div`
 height: 25vh;
