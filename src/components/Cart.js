@@ -1,8 +1,8 @@
 import React from 'react'
 import { useContext } from 'react'
 import Context from '../store/context'
-import { GatsbyImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
+import { GatsbyImage } from "gatsby-plugin-image"
 import { motion } from 'framer-motion'
 import {Card, Link} from '@geist-ui/react'
 
@@ -27,7 +27,7 @@ const Cart = ({ slug, thumbnail, tag }) => {
     const { state } = useContext(Context)
     return (
         <Styles isDark={state.isDark}>
-            <Card width="330px" className="card_body" hoverable>
+            <Card width="288px" className="card_body" hoverable>
                 <GatsbyImage image={thumbnail} alt={slug} />
                 <div className="tag-container" dangerouslySetInnerHTML= {{__html: tag}} />
                 <Card.Footer>

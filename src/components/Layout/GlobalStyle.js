@@ -1,6 +1,6 @@
 
 import { createGlobalStyle } from 'styled-components'
-import '../css/typo.css'
+import '../../css/typo.css'
 const GlobalStyle = createGlobalStyle`
   * > * {
     box-sizing: border-box;

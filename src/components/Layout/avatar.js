@@ -1,0 +1,23 @@
+import React, {useContext} from 'react'
+import { User } from '@geist-ui/react'
+import avatar from '../../images/icon.png'
+import styled from 'styled-components'
+import Context from '../../store/context'
+
+const SUser = styled(User)`&&{
+    .name, .social{
+        color: ${props =>props.isDark ? props.theme.palette.cultured : props.theme.dark.Liberty}
+    }
+}`
+
+const Avatar = () => {
+    const {state} = useContext(Context)
+
+    return (
+    <SUser src={avatar} name='chetoui hamza' isDark={state.isDark}>
+        frontend developer
+    </SUser>
+    )
+}
+
+export default Avatar

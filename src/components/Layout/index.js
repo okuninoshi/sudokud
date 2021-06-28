@@ -1,11 +1,9 @@
 import React, { useContext, Fragment } from "react"
-import Context from '../store/context'
-import Avatar from "./avatar"
+import Context from '../../store/context'
 import VirtualCursor from './VirtualCursor'
-import ToggleDarkMode from './buttons/ToggleDarkMode'
 import GlobalStyle from './GlobalStyle'
-import Navigation from './Navigation'
 import {isBrowser} from 'react-device-detect'
+import NavBar from './NavBar'
 import styled from 'styled-components'
 
 
@@ -54,29 +52,5 @@ animation:noise 0.3s infinite;
   to{transform:translate(5%)}
   }
 `
-
-const NavBar = () => {
-  return(
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      width:'100%',
-      display:"flex",
-      alignItems:"center",
-      zIndex: 20,
-      padding:"2vh 5vw",
-      background: '#00000000',
-      backdropFilter: 'blur(4px)',
-    }}>
-      <Avatar />
-      <div style={{
-        flexGrow: 1,
-      }}>
-        <Navigation />
-      </div>
-      <ToggleDarkMode />
-    </div>
-  )
-}
 
 export default Layout
