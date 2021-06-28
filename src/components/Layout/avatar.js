@@ -14,7 +14,7 @@ const Avatar = () => {
     const {state} = useContext(Context)
 
     return (
-    <SUser src={avatar} name='chetoui hamza' isDark={state.isDark}>
+    <SUser src={avatar} name='Chetoui Hamza' isDark={state.isDark}>
         frontend developer
     </SUser>
     )

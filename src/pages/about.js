@@ -69,7 +69,7 @@ const AboutPage = ({ transitionStatus, entry, exit, data }) => {
                     <Text p>I design and develop  webapp whith the focus on the speed and user experience.</Text>
                   </motion.div>
                   <Spacer y={5}/>
-                  <Text h3>tools i'm the moust confortable with.</Text>
+                  <Text h3>tools i'm the most comfortable with.</Text>
                   <Spacer y={2}/>
                   <Techs />
                   <Spacer y={5}/>
