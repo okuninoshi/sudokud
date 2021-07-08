@@ -15,8 +15,8 @@ const GlobalStyle = createGlobalStyle`
     background:${props => (props.isDark ? props.theme.dark.background : props.theme.light.background)};
     overflow-x: hidden;
   }
-  h1, h2, h3, h5{
-    font-family: 'Marvin Visions', sans-serif;
+  h1, h2, h3 {
+    font-family: 'Marvin Visions', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 1.5px;
     margin: 0;
   }
@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
   a{
     color: ${props => props.theme.palette.chinaPink};
     text-decoration: none;
-    font-family: 'Marvin Visions', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 1.2px;
   }
 `

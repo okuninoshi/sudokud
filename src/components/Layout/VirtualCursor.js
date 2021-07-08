@@ -7,10 +7,8 @@ const Cursor = styled(motion.div)`
   position: absolute;
   pointer-events: none;
   z-index: 25;
-  transform: translate(-50%, -50%);
-  transform-origin: 100% 100%;
-  border: 2px double ${props =>  props.theme.palette.Liberty};
-  backdrop-filter: hue-rotate(290deg);
+  border-radius: 50%;
+  border: 1px double ${props =>  props.theme.palette.chinaPink};
 `
 const VirtualCursor = () => {
     const { state } = useContext(Context)
@@ -22,8 +20,8 @@ const VirtualCursor = () => {
         window.addEventListener('scroll', logKey);
         function logKey(e) {
           return [
-            setposX(e.pageX),
-            setposY(e.pageY),
+            setposX(e.pageX - 16),
+            setposY(e.pageY - 16),
           ]
         }
         return () => {
@@ -42,10 +40,10 @@ const VirtualCursor = () => {
             opacity: 0,
           }}
           animate={{
+            width: "32px",
+            height: "32px",
             opacity: 1,
-            width: state.isHovered ? '80px' : state.INPUT_HOVERED ? "1px" : state.CARD_HOVERED ? '80px' : '32px',
-            height: state.isHovered ? '32px' : state.CARD_HOVERED ? '80px' : '32px',
-            borderRadius: state.isHovered || state.INPUT_HOVERED ? '0%' :  '50%',
+            scale: state.isHovered || state.INPUT_HOVERED ? 1.4 : 0.9
           }}
          id="virtual-cursor" />
     )

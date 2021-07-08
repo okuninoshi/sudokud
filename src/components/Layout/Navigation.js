@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { useContext } from 'react'
 import Context from '../../store/context'
 import {Grid} from '@geist-ui/react'
-import { Mail, ArrowRight, ChevronLeft, Circle, Info, Slash, Box } from "@geist-ui/react-icons";
+import { Mail, Info, Box } from "@geist-ui/react-icons";
 
 const Nav = styled(motion.nav)`
     width: 100%;

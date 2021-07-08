@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
 import Container from '../components/Container'
-// import NesCard from '../components/NesCard';
 import Cart from '../components/Cart';
 import PageTitle from '../components/PageTitle'
 import Techs from '../components/TechIUse'
@@ -22,19 +21,35 @@ const projects = [
   {
     tag: "<span> Nuxtjs </span> <span> Vuetify </span> <span> Netlify </span>",
     slug: "https://elevatin.agency",
-    excerpt: "digital web Agency.",
   },
   {
     tag: "<span> Gatsbyjs </span> <span> MaterialUi </span> <span> Netlify-cms </span>",
     slug: "https://andt-dz.com",
-    excerpt: "governement website.",
+  },
+  {
+    tag: "",
+    slug: "#",
+  },
+]
+const articles = [
+  {
+    tag: "<span> Next.js </span> <span> Strapi </span> <span> mongoDB </span>",
+    slug: "https://zenn.dev/okuninoshi/articles/a63131abf7d9ae",
+  },
+  {
+    tag: "",
+    slug: "#",
+  },
+  {
+    tag: "",
+    slug: "#",
   },
 ]
 
 
 const AboutPage = ({ transitionStatus, entry, exit, data }) => {
-  const { edges } = data.allFile
-
+  const { edges } = data.Projects
+  const { edges: articles_edges} = data.Articles
   return (
     <Layout>
       <Seo title="About"/>
@@ -73,9 +88,9 @@ const AboutPage = ({ transitionStatus, entry, exit, data }) => {
                   <Spacer y={2}/>
                   <Techs />
                   <Spacer y={5}/>
-                  <Text h3>some work !</Text>
+                  <Text h3>Work</Text>
                   <Spacer y={2}/>
-                  <Grid.Container gap={2.5} justify="center">
+                  <Grid.Container gap={2} justify="center">
                     {
                       projects.map((project, id) => {
                         project.img = edges.map(({node}) => {return node.childImageSharp.gatsbyImageData})
@@ -94,6 +109,27 @@ const AboutPage = ({ transitionStatus, entry, exit, data }) => {
                       })
                     }
                   </Grid.Container>
+                  <Spacer y={5}/>
+                  <Text h3>Writing</Text>
+                  <Spacer y={2}/>
+                  <Grid.Container gap={2.5} justify="center">
+                    {
+                      articles.map((article, id) => {
+                        article.img = articles_edges.map(({node}) => {return node.childImageSharp.gatsbyImageData})
+                        //add the image array as props to the project object
+                        return (
+                          <Grid justify="center" key={id} xs={24} sm={12} md={8} lg={6}>
+                            <Cart
+                              key={id}
+                              slug={article.slug}
+                              thumbnail={article.img[id]}
+                              tag={article.tag}
+                            />
+                          </Grid>
+                        )
+                      })
+                    }
+                  </Grid.Container>
               </Container>
             </Section>
           )
@@ -104,8 +140,21 @@ const AboutPage = ({ transitionStatus, entry, exit, data }) => {
 
 
 export const pageQuery = graphql`
-query projectsImageQuery {
-  allFile(filter: {relativeDirectory: {eq: "projects"}}) {
+query ImageQuery {
+  Projects: allFile(filter: {relativeDirectory: {eq: "projects"}}) {
+    edges {
+      node {
+        id
+        childImageSharp {
+          gatsbyImageData(
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
+    }
+  }
+  Articles: allFile(filter: {relativeDirectory: {eq: "articles"}}) {
     edges {
       node {
         id
