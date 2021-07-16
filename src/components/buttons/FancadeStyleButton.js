@@ -28,16 +28,16 @@ background:transparent;
     align-items:center;
     justify-content:center;
     font-size:1rem;
-    color: ${props => props.theme.palette.cultured};
+    color: ${props => props.theme.palette.text};
 }
 #btn-body, #body-translate{
-    fill: ${props => props.theme.light.chinaPink};
+    fill: ${props => props.theme.light.macaroniAndChees};
 }
 #btn-borders, #border-translate{
-    fill: ${props => props.theme.palette.chinaPink};
+    fill: ${props => props.theme.palette.macaroniAndChees};
 }
 #btn-shadow{
-    fill: ${props => props.theme.palette.chinaPink};
+    fill: ${props => props.theme.palette.macaroniAndChees};
 }
 `
 
@@ -67,7 +67,7 @@ function FancadeButton({ text, ...props }) {
                 >
                     <path
                         id="btn-body"
-                        fill="#c4b7c8"
+                        // fill="#c4b7c8"
                         fillOpacity="1"
                         strokeWidth="0.281"
                         d="M1.828 25.477v27.502h124.344V25.477H1.828z"
@@ -76,7 +76,7 @@ function FancadeButton({ text, ...props }) {
                     ></path>
                     <path
                         id="btn-borders"
-                        fill="#3e3748"
+                        // fill="#3e3748"
                         strokeWidth="0.28"
                         d="M0 27.305V51.15h1.828V27.305H0zM1.828 51.15v1.829h1.828V51.15H1.828zm1.828 1.829v1.826h120.688v-1.826H3.656zm120.688 0h1.828V51.15h-1.828v1.829zm1.828-1.829H128V27.305h-1.828V51.15z"
                         opacity="1"
@@ -84,7 +84,7 @@ function FancadeButton({ text, ...props }) {
                     ></path>
                     <path
                         id="btn-shadow"
-                        fill="#a793ac"
+                        // fill="#a793ac"
                         fillOpacity="1"
                         strokeWidth="0.074"
                         d="M46.197 119.063v1.451h.483v.483h31.932v-.483h.484v-1.451h-.484v.483H46.68v-.483z"
@@ -93,7 +93,7 @@ function FancadeButton({ text, ...props }) {
                     <motion.path
                         animate={{ y: active ? 1.310 : 0 }}
                         id="border-translate"
-                        fill="#3e3748"
+                        // fill="#3e3748"
                         fillOpacity="1"
                         strokeWidth="0.074"
                         d="M46.68 106.98v.483h31.932v-.483zm31.932.483v.484h.484v-.484zm.484.484v6.587l.484.004v-6.59zm-32.416-.484h-.483v.484h.483zm-.483.484h-.484v6.595l.484-.005z"
@@ -102,7 +102,7 @@ function FancadeButton({ text, ...props }) {
                     <motion.path
                         animate={{ y: active ? 1.310 : 0 }}
                         id="body-translate"
-                        fill="#c4b7c8"
+                        // fill="#c4b7c8"
                         fillOpacity="1"
                         strokeWidth="0.074"
                         d="M46.68 107.463v.484h-.483v11.116h.483v.483h31.932v-.483h.484v-11.116h-.484v-.484z"

@@ -6,7 +6,11 @@ import Context from '../../store/context'
 
 const SUser = styled(User)`&&{
     .name, .social{
-        color: ${props =>props.isDark ? props.theme.palette.cultured : props.theme.dark.Liberty}
+        color: ${props =>props.isDark ? props.theme.palette.cultured : props.theme.dark.Liberty};
+        user-select: none;
+    }
+    .name{
+        font-weight: bold;
     }
 }`
 
@@ -15,7 +19,7 @@ const Avatar = () => {
 
     return (
     <SUser src={avatar} name='Chetoui Hamza' isDark={state.isDark}>
-        frontend developer
+        Jamstack developer
     </SUser>
     )
 }

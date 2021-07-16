@@ -13,10 +13,8 @@ const Faurme = styled.form`
 position: relative;
 display: flex; 
 flex-direction: column;
-padding: 5vh 0;
 margin: auto;
 max-width: calc(200px + 50vw);
-height:60vh;
 .button-container {
     margin: auto;
     margin-top: 16px;
@@ -130,7 +128,7 @@ const Form = () => {
                 />      
                 {errors.email && <p className="error-message">email is required</p>}
             </FaurmeGroup>
-            {Email && <FaurmeGroup 
+            <FaurmeGroup 
                 isDark={state.isDark}
                 initial={{opacity: 0, y: 48 }} 
                 animate={{ opacity:1, y: 0 }} 
@@ -153,18 +151,16 @@ const Form = () => {
                     }}
                 />
                 {errors.message && <p className="error-message">message is required</p>}
-            </FaurmeGroup>}
-            {Email && Message &&
-                <motion.div 
-                    initial={{opacity: 0, y: 48 }} 
-                    animate={{ opacity:1, y: 0 }} 
-                    transition={{
-                        duration: 1.6,
-                    }}
-                    className="button-container">
-                    <FancadeButton type="submit" text="Send" />
-                </motion.div>
-            }
+            </FaurmeGroup>
+            <motion.div 
+                initial={{opacity: 0, y: 48 }} 
+                animate={{ opacity:1, y: 0 }} 
+                transition={{
+                    duration: 1.6,
+                }}
+                className="button-container">
+                <FancadeButton type="submit" text="Send" />
+            </motion.div>
             {
                 status === 200 &&
                 <div ref={ref} style={{

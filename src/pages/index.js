@@ -12,8 +12,8 @@ const Section = styled(motion.section)`
  position: relative;
  z-index:1;
  .hero-about-me {
-  text-align: left;
-  padding-left: 2vw;
+  text-align: center;
+  /* border: 1px solid deeppink; */
  }
  .circle{
   transform-origin: 50%;
@@ -81,8 +81,9 @@ const HomePage = ({ location, transitionStatus, exit, entry }) => {
           <Container>
             <HeroTitle />
             <motion.p 
-            className="hero-about-me" 
-            variants={item}>
+              className="hero-about-me" 
+              variants={item}
+            >
               self taught web developer, a designer, and a JAMSTACK enthusiast
             </motion.p>
           </Container>
