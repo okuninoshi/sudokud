@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
 import Form from '../components/Form'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'reflexbox/styled-components'
 import Seo from '../components/Seo'
 import { useContext } from 'react'
 import Context from '../store/context'

@@ -5,7 +5,7 @@ import Navigation from './Navigation'
 import { useContext } from 'react'
 import Context from '../../store/context'
 import styled from 'styled-components'
-import { Flex, Box } from 'reflexbox'
+import { Flex, Box } from 'reflexbox/styled-components'
 
 const FixedTop = styled.nav`
   position: fixed;
