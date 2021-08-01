@@ -2,10 +2,10 @@ import React from 'react'
 import Avatar from "./avatar"
 import ToggleDarkMode from '../buttons/ToggleDarkMode'
 import Navigation from './Navigation'
-import { Grid } from '@geist-ui/react'
 import { useContext } from 'react'
 import Context from '../../store/context'
 import styled from 'styled-components'
+import { Flex, Box } from 'reflexbox'
 
 const FixedTop = styled.nav`
   position: fixed;
@@ -29,23 +29,16 @@ const NavBar = () => {
   const {state} = useContext(Context)
     return(
       <>
-      <FixedTop isDark={state.isDark}>
-        <Grid.Container>
-          <Grid xs justify="flex-start">
+        <FixedTop isDark={state.isDark}>
+          <Flex>
             <Avatar />
-          </Grid>
-          <Grid xs justify="flex-end">
+            <Box mx='auto' />
             <ToggleDarkMode />
-          </Grid>
-        </Grid.Container>
-      </FixedTop>
-      <FixedBottom isDark={state.isDark}>
-        <Grid.Container>
-          <Grid xs={24}>
-            <Navigation />
-          </Grid>
-        </Grid.Container>
-      </FixedBottom>
+          </Flex>
+        </FixedTop>
+        <FixedBottom isDark={state.isDark}>
+          <Navigation />
+        </FixedBottom>
       </>
     )
 }

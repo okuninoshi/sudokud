@@ -27,17 +27,18 @@ background:transparent;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:1rem;
+    font-weight: 700;
+    font-size: 1rem;
     color: ${props => props.theme.palette.text};
 }
 #btn-body, #body-translate{
-    fill: ${props => props.theme.light.macaroniAndChees};
+    fill: ${props => props.isDark ? props.theme.light.chinaPink : props.theme.light.background};
 }
 #btn-borders, #border-translate{
-    fill: ${props => props.theme.palette.macaroniAndChees};
+    fill: ${props => props.isDark ? props.theme.palette.chinaPink : props.theme.palette.background};
 }
 #btn-shadow{
-    fill: ${props => props.theme.palette.macaroniAndChees};
+    fill: ${props => props.isDark ? props.theme.palette.chinaPink : props.theme.palette.background};
 }
 `
 

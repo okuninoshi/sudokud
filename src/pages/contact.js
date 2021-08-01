@@ -2,16 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import Layout from '../components/Layout';
-import { Grid } from '@geist-ui/react'
 import Form from '../components/Form'
-// import Container from '../components/Container'
+import { Flex, Box } from 'reflexbox'
 import Seo from '../components/Seo'
 import { useContext } from 'react'
 import Context from '../store/context'
 
 
 const Section = styled(motion.section)`
-padding:5vh 5vw;
+padding:15vh 5vw;
 height:100vh;
 .twitter{
   font-size: 1rem;
@@ -39,30 +38,28 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
             ? {duration: exit.length}
             : {duration: 0.5}
           }>
-          <Grid.Container style={{height:"100%"}}>
-            <Grid xs={24} md={9} justify="center" alignItems="center">
-              <p style={{textAlign:"center"}}>
-                Got a burning question regarding <em>Jamstack</em>,
-                Need a new <em>Website</em>, or just anything in general.
-                I am happy to talk.
-                Just send me a message using the form below or you can send me a DM on &nbsp;
-                <a
-                  onMouseEnter = {()=> {
-                    return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                  }}
-                  onMouseLeave= {()=> {
+            <Flex flexWrap='wrap'>
+              <Box width={[1, 1, 1, 2/5]} mb={3} display="flex" alignItems="center">
+                <p>
+                  Got a burning question regarding <em>Jamstack</em>,
+                  Need a new <em>Website</em>, or just anything in general.
+                  I am happy to talk.
+                  Just send me a message using the form below or you can send me a DM on &nbsp;
+                  <a
+                    onMouseEnter = {()=> {
                       return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                    }} className="twitter" href="https://twitter.com/okuninoshi">
-                  Twitter.
-                </a>
-              </p>
-            </Grid>
-            <Grid xs={24} md={15} justify="center" alignItems="center">
-              <div id="main-form">
+                    }}
+                    onMouseLeave= {()=> {
+                        return dispatch({ type: "TOGGLE_HOVERED_MODE" })
+                      }} className="twitter" href="https://twitter.com/okuninoshi">
+                    Twitter.
+                  </a>
+                </p>
+              </Box>
+              <Box width={[1, 1, 1, 3/5]}>
                 <Form />
-              </div>
-            </Grid>
-          </Grid.Container>
+              </Box>
+            </Flex>
         </Section>)
       }
     </Layout>
