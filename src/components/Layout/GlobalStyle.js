@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     font-weight: 400;
     font-style: normal;
-    font-size: 1rem;
+    font-size: 1.4rem;
     color:${props => (props.isDark ? props.theme.dark.text : props.theme.dark.background)};
     margin:0;
     padding:0;
@@ -37,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
     line-height: calc(0.875rem + 1.4vw);
     margin: 0;
   }
-  a{
+  p, a{
     color: ${props => props.theme.palette.chinaPink};
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

@@ -1,27 +1,35 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { User } from '@geist-ui/react'
-import avatar from '../../images/icon.png'
-import styled from 'styled-components'
-import Context from '../../store/context'
-
-const SUser = styled(User)`&&{
-    .name, .social{
-        color: ${props =>props.isDark ? props.theme.palette.cultured : props.theme.dark.Liberty};
-        user-select: none;
-    }
-    .name{
-        font-weight: bold;
-    }
-}`
+import { useStaticQuery, graphql } from "gatsby"
 
 const Avatar = () => {
-    const {state} = useContext(Context)
-
+    // querying the webp format of the avatat png image to reduce size
+    const data = useStaticQuery(graphql`
+    query MyQuery {
+        allImageSharp(filter: {id: {eq: "5159c0b3-e057-5e08-91f6-7e37663babed"}}) {
+            edges {
+            node {
+                id
+                fixed(width: 35) {
+                base64
+                tracedSVG
+                aspectRatio
+                srcWebp
+                srcSetWebp
+                originalName
+                }
+            }
+            }
+        }
+    }
+  `)
     return (
-    <SUser src={avatar} name='Chetoui Hamza' isDark={state.isDark}>
-        Jamstack developer
-    </SUser>
+        <User src={data.allImageSharp.edges[0].node.fixed.srcWebp} name='Chetoui Hamza'>
+            <User.Link href="https://twitter.com/okuninoshi">@okuninoshi</User.Link>
+        </User>
     )
 }
 
 export default Avatar
+
+  

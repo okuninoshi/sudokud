@@ -6,7 +6,7 @@ import Context from '../../store/context'
 const Cursor = styled(motion.div)`
   position: absolute;
   pointer-events: none;
-  z-index: 25;
+  z-index: 99;
   border-radius: 50%;
   border: 1px double ${props =>  props.theme.palette.chinaPink};
 `

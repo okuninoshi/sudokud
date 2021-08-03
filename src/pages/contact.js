@@ -10,13 +10,8 @@ import Context from '../store/context'
 
 
 const Section = styled(motion.section)`
-padding:15vh 5vw;
-height:100vh;
-.twitter{
-  font-size: 1rem;
-  letter-spacing:2px;
-  font-style: italic;
-}
+padding:19vh 5vw;
+min-height: 100vh;
 `
 const ContactPage = ({location, transitionStatus, entry, exit }) => {
   const path = location.pathname
@@ -39,10 +34,10 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
             : {duration: 0.5}
           }>
             <Flex flexWrap='wrap'>
-              <Box width={[1, 1, 1, 2/5]} mb={3} display="flex" alignItems="center">
+              <Box width={[1, 1, 1, 2/5]} mb={3} pl={3} display="flex" alignItems="center">
                 <p>
-                  Got a burning question regarding <em>Jamstack</em>,
-                  Need a new <em>Website</em>, or just anything in general.
+                  Got a burning question regarding <b>Jamstack</b>,
+                  Need a new <b>Website</b>, or just anything in general.
                   I am happy to talk.
                   Just send me a message using the form below or you can send me a DM on &nbsp;
                   <a
@@ -51,7 +46,7 @@ const ContactPage = ({location, transitionStatus, entry, exit }) => {
                     }}
                     onMouseLeave= {()=> {
                         return dispatch({ type: "TOGGLE_HOVERED_MODE" })
-                      }} className="twitter" href="https://twitter.com/okuninoshi">
+                      }} href="https://twitter.com/okuninoshi">
                     Twitter.
                   </a>
                 </p>

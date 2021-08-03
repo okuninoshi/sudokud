@@ -78,10 +78,10 @@ const AboutPage = ({ transitionStatus, entry, exit, data }) => {
                     transition={{ duration: 0.8 }}
                     className="about-bio"
                   >
-                    <Text p>
+                    <p>
                       Welcome to my personal site where I drop things related to the web and specifically to the jamstack.
-                    </Text>
-                    <Text p>I design and develop  webapp whith the focus on the speed and user experience.</Text>
+                    </p>
+                    <p>I design and develop  webapp whith the focus on the speed and user experience.</p>
                   </motion.div>
                   <Spacer y={5}/>
                   <Text h3>tools i'm the most comfortable with.</Text>

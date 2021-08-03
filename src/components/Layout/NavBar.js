@@ -21,7 +21,7 @@ const FixedBottom = styled.div`
   bottom: 0;
   width:100%;
   z-index: 20;
-  padding: 2vh 3vw;
+  padding: 0 3vw;
   background: ${props => props.isDark ? props.theme.dark.background : props.theme.light.background};
 `
 

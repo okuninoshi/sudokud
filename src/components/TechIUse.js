@@ -49,7 +49,7 @@ const Techs = () => {
                 {tools.map(({name, imgUrl} ,id) => {
                     return(
                     <span key={id} className="tool">
-                        <img src={`/images/techs/${imgUrl}`} alt={name} />
+                        <img height={39} src={`/images/techs/${imgUrl}`} alt={name} />
                     </span>
                     )})
                 }
@@ -58,7 +58,7 @@ const Techs = () => {
                 {tools.map(({name, imgUrl} ,id) => {
                     return(
                     <span key={id} className="tool">
-                        <img src={`/images/techs/${imgUrl}`} alt={name} />
+                        <img height={39} src={`/images/techs/${imgUrl}`} alt={name} />
                     </span>
                     )})
                 }
