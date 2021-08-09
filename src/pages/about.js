@@ -34,7 +34,7 @@ const projects = [
 const articles = [
   {
     tag: "<span> Next.js </span> <span> Strapi </span> <span> mongoDB </span>",
-    slug: "https://zenn.dev/okuninoshi/articles/a63131abf7d9ae",
+    slug: "https://strapi.io/blog/how-to-create-an-api-with-strapi-by-rebuilding-the-mdn-express-js-local-library-website",
   },
   {
     tag: "",
